@@ -49,17 +49,7 @@
   height:auto;
 }
 </style>
-<div class="page-title-section" style="background-image: url({{asset('frontend/img/slider/banner01.jpg')}});">
-		<div class="container">
-			<h1>Product</h1> 
-			<ul>
-				<li><a href="index.html">Home</a>
-				</li>
-				<li><a href="">Product List</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+
 
     <div class="section-block">
 		<div class="container-fluid">

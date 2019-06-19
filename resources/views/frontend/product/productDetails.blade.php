@@ -1,5 +1,6 @@
 @extends('frontend.master')
 @section('maincontent')
+<<<<<<< HEAD
 <div class="page-title-section" style="background-image: url({{asset('frontend/img/slider/banner01.jpg')}});">
 		<div class="container">
 			<h1>Shop Single</h1> 
@@ -12,6 +13,10 @@
 		</div>
 	</div>
 	<?php $y = \App\Product::where(['id' => request()->id])->first(); ?>
+=======
+
+
+>>>>>>> 49ceafd3f4400878d1e7f695761394b3027d4345
     <div class="section-block">
 		<div class="container">
 			<div class="row">

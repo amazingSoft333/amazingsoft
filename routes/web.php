@@ -29,6 +29,7 @@ Route::get('userpayment','FrontendController@userpayment_index')->name('userpaym
 
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index');
+Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
 /*End Client Registration Section*/
 
 Auth::routes();

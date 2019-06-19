@@ -32,7 +32,43 @@
 	@include('clientField.includes.menubar')
 	</header>
 
-	@yield('maincontent')
+	<div class="section-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-4 col-12">
+					<div class="services-single-left-box">
+						<div class="services-single-left-heading">
+							<h3>Client's Dashboard</h3> 
+						</div>
+						<div class="services-single-menu mt-30">
+							<ul>
+								<li class="services-active"><a href="#">Order List</a>
+								</li>
+								<li><a href="#">Products</a>
+								</li>
+								<li><a href="#">Payment History</a>
+								</li>
+								<li><a href="#">New Order</a>
+								</li>
+								<li><a href="#">Notification</a>
+								</li>
+							</ul>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div class="col-md-9 col-sm-8 col-12">
+					<div class="services-single-right">
+					
+						<div class="row mt-65">
+						@yield('maincontent')
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer>
     @include('clientField.includes.footer')

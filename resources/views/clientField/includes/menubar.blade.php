@@ -12,42 +12,22 @@
 			</div>
 			<div class="nav-menus-wrapper">
 				<ul class="nav-menu align-to-right">
-					<li class="active"><a href="{{url('/')}}">Home</a></li>
-					 
 					
-					            @php
-								$publishedCategories=\App\Packagecat::get();
-								@endphp
-					<li><a href="#">Packages</a> 
-						<ul class="nav-dropdown">
-							@foreach($publishedCategories as $publishedCategory)
-							<li><a href="{{url('/packageContent/'.$publishedCategory->id)}}">{{$publishedCategory->category}}</a>
-							</li>
-							@endforeach
-						</ul>
-					</li>
-					<li><a href="">Products</a> 
-
-					</li>
-					
-					<li><a href="">Order List</a> 
-
-					</li>
-					<li><a href="">Product List</a> 
-						
-					</li>
 					@if (Auth::guest())
 					<li> <a href="{{url('/login')}}" ><button type="button" class="btn btn-primary btn-sm"><b>Sing In</b></button></a> 
 					</li>
 					@else
-					<li class="dropdown">
+					<li>
+
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+								<li><a class="dropdown-item" href="{{url('/client/details')}}">Profile Edit</a></li>
+								<li><a class="dropdown-item" href="">Setting</a></li>
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                                          Logout
@@ -59,6 +39,7 @@
                                     </li>
                                 </ul>
                             </li>
+							
 							@endif
 					
 				</ul>
