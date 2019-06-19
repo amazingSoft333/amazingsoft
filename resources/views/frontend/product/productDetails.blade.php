@@ -1,16 +1,6 @@
 @extends('frontend.master')
 @section('maincontent')
-<div class="page-title-section" style="background-image: url({{asset('frontend/img/slider/banner01.jpg')}});">
-		<div class="container">
-			<h1>Shop Single</h1> 
-			<ul>
-				<li><a href="index.html">Home</a>
-				</li>
-				<li><a href="shopw-single.html">Shop Single</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+
 
     <div class="section-block">
 		<div class="container">

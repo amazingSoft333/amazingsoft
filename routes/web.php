@@ -26,6 +26,7 @@ Route::get('/contact','FrontendController@contactContent')->name('contact');
 
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index');
+Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
 /*End Client Registration Section*/
 
 Auth::routes();

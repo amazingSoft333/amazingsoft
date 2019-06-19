@@ -5066,12 +5066,12 @@ footer h3::after {
 .services-single-menu ul li a:hover {
 	-webkit-box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
 	-moz-box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
-	box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
+	box-shadow: 3px 0px 0px 0px rgba(11, 36, 108, 1) inset;
 }
 .services-active {
 	-webkit-box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
 	-moz-box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
-	box-shadow: 3px 0px 0px 0px rgba(210, 30, 43, 1) inset;
+	box-shadow: 3px 0px 0px 0px rgba(11, 36, 108, 1) inset;
 }
 .services-single-left-heading h4 {
 	color: #111;
