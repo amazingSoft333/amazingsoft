@@ -11,7 +11,7 @@
 			</ul>
 		</div>
 	</div>
-
+	<?php $y = \App\Product::where(['id' => request()->id])->first(); ?>
     <div class="section-block">
 		<div class="container">
 			<div class="row">
@@ -20,7 +20,7 @@
 						<div class="main-img-slider">
 							<figure>
 								<a href="#" data-size="1400x1400">
-									<img src="{{asset('frontend/img/shop/demoo_product.jpg')}}" alt="" />
+									<img src="{{asset('Image/ProductImage/'.$y->imageProduct)}}" alt="" class="img-thumbnail"/>
 								</a>
 							</figure>
 							
@@ -32,24 +32,24 @@
 				</div>
 				<div class="col-md-6 col-sm-6 col-12">
 					<div class="single-product">
-						<h2>Effective Finance Solutions</h2> 
+						<h2>{{$y->name}}</h2> 
 						
 						<div class="single-product-price">
-							<h4>Price: $1.750</h4> 
+							<h4>Price: $&nbsp;{{$y->price}}</h4> 
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+						<p>{{$y->information}}</p>
 						<div class="quantity mt-30">
 						<div class="pricing-list">
-						<div class="pricing-list-button"> <a href="{{route('productRegister')}}">Buy Now</a>
+						<div class="pricing-list-button"> <a href="{{route('productRegister',['id'=>$y->id])}}">Buy Now</a>
 						</div>
 						</div>
 						</div>
 						<div class="product-categories">
 							<div class="display-b"> <span>Category: </span> 
 								<ul>
-									<li><a href="#">Books</a>
+									<li><a href="#">{{\App\Productcat::where(['id' => $y->category])->first()->category}}</a>
 									</li>
-									<li><a href="#">Fiance</a>
+									<li><a href="#">{{$y->name}}</a>
 									</li>
 								</ul>
 							</div>
@@ -77,8 +77,7 @@
 							</ul>
 							<div id='tab-1' class="clearfix product-tab-body">
 								<h3>Product Description</h3> 
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+								<p>{{$y->information}}</p>
 							</div>
 							<div id='tab-2' class="clearfix product-tab-body">
 								<h3>Product Features</h3> 

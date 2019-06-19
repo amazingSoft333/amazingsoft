@@ -8,35 +8,35 @@ display:none;
 }  
 #showOne{
 color:red;
-border:1px solid red;
+border:0px solid red;
 padding:10px;
 }
 #show9{
 color:green;
-border:1px solid green;
+border:0px solid green;
 padding:10px;
 }
 #showThree{
 color:blue;
-border:1px solid blue;
+border:0px solid blue;
 padding:10px;
 }
 
 #showFour{
 color:purple;
-border:1px solid blue;
+border:0px solid blue;
 padding:10px;
 }
 
 #showSix{
 color:purple;
-border:1px solid blue;
+border:0px solid blue;
 padding:10px;
 }
 
 #showSeven{
 color:purple;
-border:1px solid blue;
+border:0px solid blue;
 padding:10px;
 }
 /*form css*/
@@ -130,13 +130,19 @@ label {
 
 
     
- 
+<!--<form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">-->
+<form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment') }}">
+                        {{ csrf_field() }}
+	<input type="hidden" name="product_id" value="{{request()->id}}">
     <div class="section-block">
 		<div class="container">
 			<div class="section-heading center-holder">
 			<form class="contact-form">
 <h4><strong>Web Demo (Product Price-$30)</strong></h4>
-<div class=row>
+@if(Auth::guard('web')->check())
+	<input type="hidden" name="u_id" value="{{Auth::user()->id}}">
+@else
+<div class="row">
 <div class="col-md-6">
 <div class="row">
 
@@ -144,7 +150,7 @@ label {
         <label for="fname">Username</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="name" placeholder="Your name..">
+        <input type="text" id="fname" name="name" placeholder="Username" required autofocus>
       </div>
     </div>
    
@@ -154,7 +160,7 @@ label {
         <label for="address">Email</label>
       </div>
       <div class="col-75">
-        <input type="email" id="email" name="email" placeholder="Your Email ...">
+        <input type="email" id="email" name="email" placeholder="Email address" required autofocus>
       </div>
     </div>
 </div>
@@ -165,7 +171,7 @@ label {
         <label for="address">Password</label>
       </div>
       <div class="col-75">
-        <input type="password" id="mbNumber" name="mbNumber" placeholder="Your password..">
+        <input type="password" id="mbNumber" name="password" placeholder="Password" required>
       </div>
     </div>
 
@@ -174,12 +180,14 @@ label {
         <label for="address">Confirm Password</label>
       </div>
       <div class="col-75">
-        <input type="password" id="address" name="address" placeholder="Your password..">
+        <input type="password" id="address" name="password_confirmation" placeholder="Password" required>
       </div>
     </div>
     </div>
-    </div>
+</div>
+@endif
   <br/><br/>
+<div class="col-md-12">
 <div class="row">
   <div class="col-md-6">
     <div class="row">
@@ -190,112 +198,171 @@ label {
     
         <input type="radio" name="demo1" value="One"/> Yes
         <input class="my-activity" type="radio" name="demo1" value="9"/> No
-<div id="showOne" class="myDiv">
-<label>URL</label>
-<input type="text" name="name" placeholder=""/></br>
-<label>LID</label>
-<input type="text" name="lid" placeholder=""/></br>
-<label>LPW</label>
-<input type="password" name="lpw" placeholder=""/></br>
-</div>
 
-
-<div id="show9" class="myDiv">
-<p style="font-size:16px;"><strong>Domain Cost- $9</strong></p>
-<label>Search Your Domain Name</label>
-<input type="text" placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-
-</div>
+		
       </div>
     </div>
-    </div>
- <!----
-  <h6>Have You Any Domain?</h6>
-  <input type="radio" name="demo1" value="One"/> Yes
-<input type="radio" name="demo1" value="Two"/> No
-<div id="showOne" class="myDiv">
-<label>URL</label>
-<input type="text" name="name" placeholder=""/></br>
-<label>LID</label>
-<input type="text" name="lid" placeholder=""/></br>
-<label>LPW</label>
-<input type="password" name="lpw" placeholder=""/></br>
-</div>
----->
-<div class="col-md-6">
-<div class="row">
-      <div class="col-25">
-        <label for="address">Have You Any Hosting?</label>
-      </div>
-      <div class="col-75">
-      <input type="radio" name="demo2" value="Three"/> Yes
-<input type="radio" name="demo2" value="Four"/> No
-<div id="showThree" class="myDiv">
-<label>C-Panel Link</label>
-<input type="text" name="cpLink" placeholder=""/></br>
-<label>C-Panel ID</label>
-<input type="text" name="cpId" placeholder=""/></br>
-<label>C-Panel Pass</label>
-<input type="password" name="Cppass" placeholder=""/></br>
+  </div>
+
+  <div class="col-md-6">
+	<div class="row">
+		  <div class="col-25">
+			<label for="address">Have You Any Hosting?</label>
+		  </div>
+		  <div class="col-75">
+		  <input type="radio" name="demo2" value="Three"/> Yes
+		  <input type="radio" name="demo2" value="Four"/> No
+
+		  </div>
+	</div>
+  </div>
 </div>
 
-<div id="showFour" class="myDiv">
-<p><strong>Your Hosting Cost</strong></p>
-<input class="my-activity" type="radio" name="hosting" value="10"> 1GB=$10<br>
-  <input class="my-activity" type="radio" name="hosting" value="30"> 2GB=$30<br>
-  <input class="my-activity" type="radio" name="hosting" value="60"> 10GB=$60<br/>
-  <a href=""><span class="label label-primary">Order Now</span></a>
-</div>
-      </div>
-    </div>
-    </div>
-    </div>
-<!--- <h6>Have You Any Hosting?</h6>
+			<!----------------Search your form-------------->
+		<div id="showOne" class="myDiv">
+		<div class="row">
+		<div class="col-lg-2">
+		<label>Capnel URL</label>
+		</div>
+		<div class="col-lg-10">
+			<input type="text" name="name" placeholder=""/></br>
+		</div>
+		<div class="col-lg-2">
+		<label>Login ID</label>
+		</div>
+		<div class="col-lg-10">
+			<input type="text" name="lid" placeholder=""/></br>
+		</div>
+		<div class="col-lg-2">
+		<label>Login Password</label>
+		</div>
+		<div class="col-lg-10">
+			<input type="password" name="lpw" placeholder=""/></br>
+		</div>
+		</div>
+		</div>
+		<!----------------Search your form-------------->
+		<!----------------Search your form-------------->
+		<div id="show9" class="myDiv">
+			<div class="row">
+			<div class="col-lg-12">
+				<p style="font-size:16px;"><strong>Domain Cost- $9</strong></p>
+				<label>Search Your Domain Name</label>
+			</div>
+			<div class="col-lg-12">
+				<input type="text" placeholder="Search.." name="search">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</div>
+			</div>
+		</div>
+		<!----------------Search your form-------------->
+		
+		<!----------------Search your form-------------->
+		<div id="showThree" class="myDiv">
+		<div class="row">
+		<div class="col-lg-2">
+			<label>C-Panel Link</label>
+		</div>
+		<div class="col-lg-10">
+				<input type="text" name="cpLink" placeholder=""/></br>
+		</div>
+		<div class="col-lg-2">
+			<label>C-Panel ID</label>
+		</div>
+		<div class="col-lg-10">
+				<input type="text" name="cpId" placeholder=""/></br>
+		</div>
+		<div class="col-lg-2">
+			<label>C-Panel Pass</label>
+		</div>
+		<div class="col-lg-10">
+				<input type="password" name="Cppass" placeholder=""/></br>
+		</div>
+		</div>
+		</div>
+	    <!----------------Search your form-------------->
+	    <!----------------Search your form-------------->
+		<div id="showFour" class="myDiv">
+			<p><strong>Your Hosting Cost</strong></p><br>
+			<div class="row">
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="10"> 1GB=$10
+				</div>
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="30"> 2GB=$20
+				</div>
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="30"> 3GB=$30
+				</div>
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="30"> 5GB=$45
+				</div>
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="60"> 10GB=$60
+				</div>
+				<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="hosting" value="60"> 10-Above =$90
+				</div>
+				<!--<a href=""><span class="label label-primary">Order Now</span></a>-->
+			</div>
+		</div>
+	    <!----------------Search your form-------------->
 
-<input type="radio" name="demo2" value="Three"/> Yes
-<input type="radio" name="demo2" value="Four"/> No
-<div id="showThree" class="myDiv">
-<label>C-Panel ID</label>
-<input type="text" name="name" placeholder=""/></br>
-<label>C-Panel Pass</label>
-<input type="password" name="pass" placeholder=""/></br>
 </div>
 
-<div id="showFour" class="myDiv">
-<label><a href="">Order Now</a></label>
-</div>
-------->
 <h4><strong> Have Any Content of Website??</strong></h4>
+<div class="col-md-12">
 <div class="row">
-<div class="col-4">
-<input type="radio" name="demo4" value="Six"/> I have Content but need to upload
-<div id="showSix" class="myDiv">
+		<div class="col-4">
+		<input type="radio" name="demo4" value="Six"/> I have Content but need to upload
+		</div>
 
-<input class="my-activity" type="radio" name="content" value="10">1-5 Page [$10]<br>
-  <input class="my-activity" type="radio" name="content" value="20">6-10 Page-[$20]<br>
-  <input class="my-activity" type="radio" name="content" value="30">11-30 Page-[$30]<br/>
-  <input class="my-activity" type="radio" name="content" value="50">31-Above Page-[$50]<br/>
-  
-</div>
-</div>
+		<div class="col-4">
+		<input type="radio" name="demo4" value="Seven"/> Need Content and Upload
+		</div>
 
-<div class="col-4">
-<input type="radio" name="demo4" value="Seven"/> Need Content and Upload
-<div id="showSeven" class="myDiv">
+		<div class="col-4">
+		<input type="radio" name="demo4" value="Five"/> Nothing
+		</div>
 
-<input class="my-activity" type="radio" name="content" value="20">1-5 Page [$20]<br>
-  <input class="my-activity" type="radio" name="content" value="40">6-10 Page-[$40]<br>
-  <input class="my-activity" type="radio" name="content" value="60">11-30 Page-[$60]<br/>
-  <input class="my-activity" type="radio" name="content" value="100">31-Above Page-[$100]<br/>
-  
 </div>
-</div>
-
-<div class="col-4">
-<input type="radio" name="demo4" value="Five"/> Nothing
-</div>
-
+		<!----------------Search your form-------------->
+		<div id="showSix" class="myDiv">
+		  <div class="row">
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="10">1-5 Page [$10] &nbsp;&nbsp;&nbsp;
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="20">6-10 Page-[$20] &nbsp;&nbsp;&nbsp;
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="30">11-30 Page-[$30] &nbsp;&nbsp;&nbsp;
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="50">31-Above Page-[$50]&nbsp;&nbsp;&nbsp;
+		  </div>
+		  </div>
+		</div>
+		<!----------------Search your form-------------->
+		
+		<!----------------Search your form-------------->
+		<div id="showSeven" class="myDiv">
+		  <div class="row">
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="20">1-5 Page [$20]<br>
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="40">6-10 Page-[$40]<br>
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="60">11-30 Page-[$60]<br/>
+		  </div>
+		  <div class="col-lg-3">
+		  <input class="my-activity" type="radio" name="content" value="100">31-Above Page-[$100]<br/>
+		  </div>
+		  </div>
+		</div>
+		<!----------------Search your form-------------->
 </div>
 <br/>
 <br/>
@@ -314,14 +381,14 @@ label {
 
 <br/><br/>
  <div class="pb-10">
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Continue &nbsp; <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
   </div>
 </form>
 			</div>
 	
 		</div>
 	</div>
-
+</form>
 
     <script>
 $(document).ready(function(){

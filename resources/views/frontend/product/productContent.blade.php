@@ -67,85 +67,39 @@
 				<div class="col-md-12 col-sm-12 col-12">
                 <h2>Categories</h2>
 
+			<?php $x = \App\Productcat::all(); ?>
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'e-commerce')" id="defaultOpen">E-Commerce <span class="pull-right">(10)</span></button>
-  <button class="tablinks" onclick="openCity(event, 'pos')">POS <span class="pull-right">(15)</span></button>
+  @foreach($x as $data)
+  <button class="tablinks" onclick="openCity(event, '{{$data->category}}')" id="defaultOpen">{{$data->category}}<span class="pull-right">{{\App\Product::where(['category' => $data->id])->count()}}</span></button>
+  @endforeach
+  <!--<button class="tablinks" onclick="openCity(event, 'pos')">POS <span class="pull-right">(15)</span></button>
   <button class="tablinks" onclick="openCity(event, 'accounting')">Accounting <span class="pull-right">(20)</span></button>
+  -->
 </div>
-
-<div id="e-commerce" class="tabcontent">
+@foreach($x as $data)
+<div id="{{$data->category}}" class="tabcontent">
+<?php $y = \App\Product::where(['category' => $data->id])->get(); ?>
 <div class="row mt-10">
+				@foreach($y as $datadata)
 				<div class="col-md-4 col-sm-6 col-12">
 					<div class="project-grid">
 						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-2.jpg')}}" alt="img">
+							<img src="{{asset('Image/ProductImage/'.$datadata->imageProduct)}}" alt="img">
 						</div>
 						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">E-commerce Solution</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details</a></p>
+							<h4><a href="{{route('productDetail',['id'=>$datadata->id])}}">{{$datadata->name}}</a></h4> 
+							<p><a href="{{route('productDetail',['id'=>$datadata->id])}}">Click For Details</a></p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-6 col-12">
-					<div class="project-grid">
-						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-1.jpg')}}" alt="img">
-						</div>
-						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">Cash Statement</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-12">
-					<div class="project-grid">
-						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-3.jpg')}}" alt="img">
-						</div>
-						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">Financial Metrics</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details<a></a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-12">
-					<div class="project-grid">
-						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-6.jpg')}}" alt="img">
-						</div>
-						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">Project Name</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-12">
-					<div class="project-grid">
-						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-5.jpg')}}" alt="img">
-						</div>
-						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">Porject Name</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-12">
-					<div class="project-grid">
-						<div class="project-grid-img">
-							<img src="{{asset('frontend/img/projects/pro-4.jpg')}}" alt="img">
-						</div>
-						<div class="project-grid-overlay">
-							<h4><a href="{{route('productDetail')}}">Project Name</a></h4> 
-							<p><a href="{{route('productDetail')}}">Click For Details</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
+				@endforeach
+	</div>
 </div>
+@endforeach
 
-<div id="pos" class="tabcontent">
+
+<!--<div id="pos" class="tabcontent">
 <div class="row mt-10">
 				<div class="col-md-4 col-sm-6 col-12">
 					<div class="project-grid">
@@ -218,6 +172,8 @@
 			</div>
 </div>
 
+
+
 <div id="accounting" class="tabcontent">
 <div class="row mt-10">
 				<div class="col-md-4 col-sm-6 col-12">
@@ -288,6 +244,8 @@
 				</div>
 			</div>
 </div>
+-->
+
 
 				</div>
 				

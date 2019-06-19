@@ -31,6 +31,7 @@ class FrontendController extends Controller
 
     public function productDetail()
     {
+		//dd($id);
         return view('frontend.product.productDetails');
     }
 
@@ -38,6 +39,11 @@ class FrontendController extends Controller
     {
         return view('frontend.product.productRegister');
     }
+	/*product registration*/
+	public function userpayment_index()
+	{
+		return view('frontend.product.userpayment');
+	}
 
     public function blogContent()
     {

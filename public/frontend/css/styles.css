@@ -1587,7 +1587,7 @@
 	-webkit-transition: all 0.4s ease-in-out;
 }
 .serv-section-2:hover:before {
-	background: #d21e2b;
+	background: #0C51A0;
 }
 .serv-section-2-icon {
 	position: absolute;
@@ -1598,7 +1598,7 @@
 	text-align: center
 }
 .serv-section-2-icon i {
-	color: #d21e2b;
+	color: #0C51A0;
 	font-size: 48px;
 	line-height: 65px;
 	transition: all 0.4s ease-in-out;
@@ -6566,7 +6566,9 @@ footer h3::after {
 	background: #f6f7f8;
 	color: #777 !important;
 	outline: none;
+	/*
 	width: 100%;
+	*/
 	padding: 14px;
 	margin: 10px 0px;
 	-webkit-transition-duration: 0.4s;

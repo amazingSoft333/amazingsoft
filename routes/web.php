@@ -24,6 +24,9 @@ Route::get('/contact','FrontendController@contactContent')->name('contact');
 /*End Frontend Section */
 
 
+Route::get('userpayment','FrontendController@userpayment_index')->name('userpayment');
+
+
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index');
 /*End Client Registration Section*/
