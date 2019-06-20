@@ -24,4 +24,13 @@ class ClientregController extends Controller
         $x = User::find(Auth::user()->id);
         return view('clientField.clientDetail.clientDetail',['x'=>$x]);
     }
+
+    public function clientUpdate(Request $request)
+    {
+        //$cate=Categoryteam::find($request->id);
+        $client = User::find(Auth::user()->id);
+        $client->name =$request->name;
+        $client->email=$request->email;
+        $client->save();
+    }
 }
