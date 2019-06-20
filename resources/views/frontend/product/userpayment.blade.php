@@ -18,29 +18,75 @@
 		  </thead>
 		  <tbody>
 			<tr>
-			  <th scope="row">Web/Software</th>
+			  <th scope="row">{{\App\Product::where(['id' => request()->product_id])->first()->name}}</th>
 			  <td>1</td>
-			  <td>33</td>
+			  <td>${{$x = \App\Product::where(['id' => request()->product_id])->first()->price}}</td>
 			</tr>
 			<tr>
 			  <th scope="row">Domain</th>
-			  <td>1</td>
-			  <td>33</td>
+			  @if(request()->demo1 == 'One')
+			  <td>
+							<input type="hidden" name="site" value="{{request()->site}}">
+							<input type="hidden" name="doamin_lid" value="{{request()->doamin_lid}}">
+							<input type="hidden" name="domain_pass" value="{{request()->domain_pass}}">
+							Already have a doamin
+			  </td>
+			  <td></td>
+			  @else
+			   <td>
+							<input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
+							<input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
+							<input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}">
+							<a href="{{request()->search}}">{{request()->search}}</a>
+			   </td>
+			  <td>${{request()->domain_cost}}</td>  
+			  @endif
 			</tr>
 			<tr>
 			  <th scope="row">Hosting</th>
-			  <td>1 GB</td>
-			  <td>333</td>
+			  @if(request()->demo2 == 'Three')
+			  <td>Already Have a Hosting
+				  <input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
+				  <input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
+				  <input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}"></td>
+			  <td></td>
+			  @else
+			  <td>
+				  Need a Hosting
+			  </td>
+			  <td><input class="my-activity" type="hidden" name="hosting_cost" value="{{request()->hosting_cost}}">${{request()->hosting_cost}}</td>
+			  @endif
 			</tr>
 			<tr>
 			  <th scope="row">Content</th>
+			  @if(request()->demo4 == 'Six')
+			  <td><input type="hidden" name="content_size" value="Content uplode"/>Content upload</td>
+			  <td>$<input type="hidden" name="content" value="{{request()->content}}">{{request()->content}}</td>
+			  @elseif(request()->demo4 == 'Seven')
+			  <td><input type="hidden" name="content" value="Need Content and Upload"/>Need Content and Upload</td>
+			  <td>$<input type="hidden" name="content" value="{{request()->content}}">{{request()->content}}</td>
+			  @else
 			  <td>1 pages</td>
 			  <td>33333</td>
+			  @endif
 			</tr>
 			<tr>
 			  <th scope="row"></th>
 			  <th>Total</th>
-			  <td>333</td>
+			  <td><?php
+				$domain_cost = request()->domain_cost;
+				$content = request()->content;
+				$hosting_cost = request()->hosting_cost;
+				$total =$x + $domain_cost + $hosting_cost + $content;
+				
+				echo '$'.$total;
+			  
+			  
+			  
+			  
+			  
+				?>
+			  </td>
 			</tr>
 		  </tbody>
 		</table>

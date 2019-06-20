@@ -222,22 +222,22 @@ label {
 		<div id="showOne" class="myDiv">
 		<div class="row">
 		<div class="col-lg-2">
-		<label>Capnel URL</label>
+		<label>Site URL</label>
 		</div>
 		<div class="col-lg-10">
-			<input type="text" name="name" placeholder=""/></br>
+			<input type="text" name="site" placeholder=""/></br>
 		</div>
 		<div class="col-lg-2">
 		<label>Login ID</label>
 		</div>
 		<div class="col-lg-10">
-			<input type="text" name="lid" placeholder=""/></br>
+			<input type="text" name="doamin_lid" placeholder=""/></br>
 		</div>
 		<div class="col-lg-2">
 		<label>Login Password</label>
 		</div>
 		<div class="col-lg-10">
-			<input type="password" name="lpw" placeholder=""/></br>
+			<input type="password" name="domain_pass" placeholder=""/></br>
 		</div>
 		</div>
 		</div>
@@ -247,6 +247,7 @@ label {
 			<div class="row">
 			<div class="col-lg-12">
 				<p style="font-size:16px;"><strong>Domain Cost- $9</strong></p>
+				<input type="hidden" name="domain_cost" value="9">
 				<label>Search Your Domain Name</label>
 			</div>
 			<div class="col-lg-12">
@@ -264,19 +265,19 @@ label {
 			<label>C-Panel Link</label>
 		</div>
 		<div class="col-lg-10">
-				<input type="text" name="cpLink" placeholder=""/></br>
+				<input type="text" name="cpanel_link" placeholder=""/></br>
 		</div>
 		<div class="col-lg-2">
 			<label>C-Panel ID</label>
 		</div>
 		<div class="col-lg-10">
-				<input type="text" name="cpId" placeholder=""/></br>
+				<input type="text" name="cpanel_id" placeholder=""/></br>
 		</div>
 		<div class="col-lg-2">
 			<label>C-Panel Pass</label>
 		</div>
 		<div class="col-lg-10">
-				<input type="password" name="Cppass" placeholder=""/></br>
+				<input type="password" name="cpanel_pass" placeholder=""/></br>
 		</div>
 		</div>
 		</div>
@@ -286,22 +287,22 @@ label {
 			<p><strong>Your Hosting Cost</strong></p><br>
 			<div class="row">
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="10"> 1GB=$10
+					<input class="my-activity" type="radio" name="hosting_cost" value="10"> 1GB=$10
 				</div>
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="30"> 2GB=$20
+					<input class="my-activity" type="radio" name="hosting_cost" value="20"> 2GB=$20
 				</div>
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="30"> 3GB=$30
+					<input class="my-activity" type="radio" name="hosting_cost" value="30"> 3GB=$30
 				</div>
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="30"> 5GB=$45
+					<input class="my-activity" type="radio" name="hosting_cost" value="45"> 5GB=$45
 				</div>
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="60"> 10GB=$60
+					<input class="my-activity" type="radio" name="hosting_cost" value="60"> 10GB=$60
 				</div>
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting" value="60"> 10-Above =$90
+					<input class="my-activity" type="radio" name="hosting_cost" value="90"> 10-Above =$90
 				</div>
 				<!--<a href=""><span class="label label-primary">Order Now</span></a>-->
 			</div>
@@ -330,10 +331,10 @@ label {
 		<div id="showSix" class="myDiv">
 		  <div class="row">
 		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="10">1-5 Page [$10] &nbsp;&nbsp;&nbsp;
+		  <input class="my-activity" type="radio" name="content" value="10">1-5 Page [$10]
 		  </div>
 		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="20">6-10 Page-[$20] &nbsp;&nbsp;&nbsp;
+		  <input class="my-activity" type="radio" name="content" value="20">6-10 Page-[$20] 
 		  </div>
 		  <div class="col-lg-3">
 		  <input class="my-activity" type="radio" name="content" value="30">11-30 Page-[$30] &nbsp;&nbsp;&nbsp;
