@@ -27,8 +27,9 @@ class ClientregController extends Controller
 
     public function clientUpdate(Request $request)
     {
+      
         //$cate=Categoryteam::find($request->id);
-        $client = User::find(Auth::user()->id);
+        $client = User::find($request->id);;
         $client->name =$request->name;
         $client->email=$request->email;
         $client->save();

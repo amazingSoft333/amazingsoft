@@ -19,7 +19,7 @@
 						<td>{{$x->name}}</td>
 						<td>{{$x->email}}</td>
 						<td>
-							<a href="" data-toggle="modal" data-target="#exampleModal"><button type="button"
+							<a href="" data-toggle="modal" data-target="#exampleModal{{$x->id}}"><button type="button"
 									class="btn btn-primary btn-sm"><b>Edit</b></button></a>
 						</td>
 
@@ -27,7 +27,7 @@
 					</tr>
 
 					<!-- Modal -->
-					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+					<div class="modal fade" id="exampleModal{{$x->id}}" tabindex="-1" role="dialog"
 						aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
@@ -38,23 +38,25 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									
+								{!!Form::open(['route' =>'clientUpdate','method'=>'post','class'=>'form-horizontal'])!!}
 										<div class="form-group">
 											<label for="exampleInputEmail1">Name</label>
-											<input type="text" class="form-control" value="{{$catTeam->category}}"id="exampleInputEmail1" name="name">
+											<input type="text" class="form-control" value="{{$x->name}}" id="exampleInputEmail1" name="name">
 
+											<input type="hidden" value="{{$x->id}}" class="form-control" name="id">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Email</label>
-											<input type="email" class="form-control" id="exampleInputPassword1"
+											<input type="email" class="form-control" value="{{$x->email}}" id="exampleInputPassword1" name="email"
 												>
 										</div>
-									
+									   
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 									<button type="button" class="btn btn-primary">Save changes</button>
 								</div>
+								{!!Form::close()!!}
 							</div>
 						</div>
 					</div>
