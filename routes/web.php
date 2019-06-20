@@ -30,6 +30,7 @@ Route::get('userpayment','FrontendController@userpayment_index')->name('userpaym
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index');
 Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
+Route::post('/client/update','ClientregController@clientUpdate')->name('clientUpdate');
 /*End Client Registration Section*/
 
 Auth::routes();
