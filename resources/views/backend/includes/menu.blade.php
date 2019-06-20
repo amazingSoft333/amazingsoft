@@ -100,7 +100,24 @@
     
           </ul>
         </li>
-
+		
+		
+		
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Price manager</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('productManage')}}"><i class="fa fa-circle-o"></i>Hosting Price</a></li>
+            <li><a href="{{route('productImageAdd')}}"><i class="fa fa-circle-o"></i>Content Price</a></li>
+          </ul>
+        </li>
+		
+		
+		
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Our Product</span>

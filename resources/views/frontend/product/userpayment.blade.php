@@ -95,19 +95,21 @@
 	
 	
 	<div class="col-md-6 col-sm-6 col-6">
+	<form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment2') }}">
+    {{ csrf_field() }}
 	<div class="row">
 	<div class="col-lg-12">
 		<h6>Pay Method By</h6>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="card">
 			<label class="form-check-label" for="inlineRadio1">Card</label>
 		</div>
 		<div class="form-check form-check-inline">
-		  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+		  <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="paypal">
 		  <label class="form-check-label" for="inlineRadio2">Paypal</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="option1">
 			<label class="form-check-label" for="inlineRadio1">BD</label>
 		</div>
 	</div>
@@ -119,6 +121,7 @@
 		<button class="btn btn-md btn-primary pull-right">Payment</button>
 	</div>
 	</div>
+	</form>
 	</div>
 	
 	

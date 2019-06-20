@@ -44,6 +44,10 @@ class FrontendController extends Controller
 	{
 		return view('frontend.product.userpayment');
 	}
+	public function userpayment2_index(Request $request)
+	{
+		dd($request);
+	}
 
     public function blogContent()
     {
