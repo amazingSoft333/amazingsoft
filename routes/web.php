@@ -54,6 +54,11 @@ Route::prefix('admin')->group(function() {
   Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
 
+/*****************=========Admin==================
+===========================Panel====================
+============================Route====================
+============================Start=====**************/
+
 /*About us Section*/
 Route::get('/about/descriptionAdd','AboutController@addDescription')->name('desAdd');
 Route::post('/about/descriptionSave','AboutController@saveDescription')->name('desSave');
@@ -153,9 +158,6 @@ Route::post('/chooseService/serviceSave','AdminhomeController@saveService')->nam
 Route::get('/chooseService/serviceManage','AdminhomeController@manageService')->name('serviceManageChoose');
 Route::post('/chooseService/serviceUpdate','AdminhomeController@updateService')->name('serviceUpdateChoose');
 Route::get('/chooseService/serviceDelete/{id}','AdminhomeController@deleteService')->name('serviceDeleteChoose');
-
-
-
 
 /*Admin Home Section End */
 
@@ -292,3 +294,24 @@ Route::get('/package/manage','PackageController@managePackage')->name('packageMa
 Route::post('/package/update','PackageController@updatePackage')->name('packageUpdate');
 Route::get('/package/delete/{id}','PackageController@deletePackage')->name('packageDelete');
 /*Packages Section End */
+
+/*Price Manager--Hosting */
+Route::post('/priceManage/hostingSave','PricemanagerController@saveHosting')->name('saveHosting');
+Route::get('/priceManage/hostingManage','PricemanagerController@manageHosting')->name('manageHosting');
+Route::post('/priceManage/hostingUpdate','PricemanagerController@updateHosting')->name('updateHosting');
+Route::get('/priceManage/hostingDelete/{id}','PricemanagerController@deleteHosting')->name('deleteHosting');
+/*End Price manager--Hosting*/
+
+/*Price Manager--Content */
+Route::post('/priceManage/contentSave','PricemanagerController@saveContent')->name('saveContent');
+Route::get('/priceManage/contentManage','PricemanagerController@manageContent')->name('manageContent');
+Route::post('/priceManage/contentUpdate','PricemanagerController@updateContent')->name('updateContent');
+Route::get('/priceManage/contentDelete/{id}','PricemanagerController@deleteContent')->name('deleteContent');
+
+/*End Price Manager--Content */
+
+
+/*****************=========Admin==================
+===========================Panel====================
+============================Route====================
+============================End=====**************/
