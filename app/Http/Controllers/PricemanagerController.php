@@ -79,7 +79,7 @@ class PricemanagerController extends Controller
          {
           //return $request;
          $abc=Contentmanage::find($request->id);
-         $abc->hosting =$request->hosting;
+         $abc->content =$request->content;
          $abc->price =$request->price;
          $abc->publicationType =$request->publicationType;
          $abc->save();

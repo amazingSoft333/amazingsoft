@@ -129,8 +129,8 @@
                       <label for="exampleInputEmail1">Type</label>
                       <select class="form-control" name="publicationType">
                         <option> Select Content Type</option>
-                        <option value="1" {{ $ab->publicationType  === '1' ? 'selected' : '' }}>Content+Upload</option>
-                        <option value="0" {{ $ab->publicationType === '0' ? 'selected' : ''}}>Only Upload</option>
+                        <option value="1" {{ $ab->publicationType  == '1'  ? 'selected' : ''}}> Content+Upload</option>
+                        <option value="0" {{ $ab->publicationType == '0'  ? 'selected' : ''}}> Only Upload</option>
                       </select>
                     </div>
 
