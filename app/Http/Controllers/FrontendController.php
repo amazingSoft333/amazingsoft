@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Package;
 use App\Blog;
 
@@ -46,9 +47,86 @@ class FrontendController extends Controller
 	}
 	public function userpayment2_index(Request $request)
 	{
-		dd($request);
+		//dd($request);
+		if(is_null($request->name))
+		{
+			
+		}
+		else{
+		User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+		}
+		
+		
+		
+		if($request->method == 'card')
+		{
+			dd($request);
+			return view('frontend.product.userspaymentt',['total'=> $request->total]);
+		}
+		elseif($request->method == 'paypal')
+		{
+			
+		}
+		else
+		{
+			dd($request->method);
+		}
+		
 	}
+	public function payment_store(Request $request)
+    {
+		
+	//dd($request);
+			
+	\Stripe\Stripe::setApiKey ( 'sk_test_RyFAiUILwhx6K0gz2RxbhC9S' );  
 
+	    try {
+
+			\Stripe\Charge::create ( array (
+
+					"amount" => 500 * 100,
+
+					"currency" => "usd",
+
+					"source" => $request->input('stripeToken'), // obtained with Stripe.js
+
+					"description" => "Test payment."
+ 
+			) );
+
+
+			
+			return view('frontend.product.successfull')->with('msg','Successfully Complet Your Order');
+														
+
+
+			
+			
+			
+			/*Session::flash ( 'success-message', 'Payment done successfully !' )
+
+			return Redirect::back ();*/
+
+		}
+
+		 catch ( \Exception $e ) {
+			return view('frontend.product.successfull')->with('msg','Unsuccessful!! Please Try Again Later');
+			/*Session::flash ( 'fail-message', "Error! Please Try again." );
+			
+			return Redirect::back ();*/
+
+		}
+
+
+
+
+
+    }
+	/*product_registration*/
     public function blogContent()
     {
         $publishedRecentNews=Blog::take(5)
