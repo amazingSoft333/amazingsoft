@@ -1,6 +1,8 @@
 @extends('frontend.master')
 @section('maincontent')
 <div class="section-block">
+<form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment2') }}">
+    {{ csrf_field() }}
 <div class="container">
 <div class="row serv-section-2">
 		<div class="serv-section-2-icon"> <i class="icon-credit-card2"></i> 
@@ -20,12 +22,16 @@
 			<tr>
 			  <th scope="row">{{\App\Product::where(['id' => request()->product_id])->first()->name}}</th>
 			  <td>1</td>
-			  <td>${{$x = \App\Product::where(['id' => request()->product_id])->first()->price}}</td>
+			  <td>${{$x = \App\Product::where(['id' => request()->product_id])->first()->price}}
+				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
+				  <input type="hidden" name="product_unique_id" value="AMP{{ rand(000,9999) }}{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
+			  </td>
 			</tr>
 			<tr>
 			  <th scope="row">Domain</th>
 			  @if(request()->demo1 == 'One')
 			  <td>
+							<input type="hidden" name="domain" value="Already have a doamin">
 							<input type="hidden" name="site" value="{{request()->site}}">
 							<input type="hidden" name="doamin_lid" value="{{request()->doamin_lid}}">
 							<input type="hidden" name="domain_pass" value="{{request()->domain_pass}}">
@@ -34,18 +40,16 @@
 			  <td></td>
 			  @else
 			   <td>
-							<input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
-							<input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
-							<input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}">
-							<a href="{{request()->search}}">{{request()->search}}</a>
+							<a href="{{request()->search}}"><input type="hidden" name="search" value="{{request()->search}}">{{request()->search}}</a>
 			   </td>
-			  <td>${{request()->domain_cost}}</td>  
+			  <td><input type="hidden" name="domain_cost" value="{{request()->domain_cost}}">${{request()->domain_cost}}</td>  
 			  @endif
 			</tr>
 			<tr>
 			  <th scope="row">Hosting</th>
 			  @if(request()->demo2 == 'Three')
 			  <td>Already Have a Hosting
+				  <input type="hidden" name="demo2" value="Already Have a Hosting">
 				  <input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
 				  <input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
 				  <input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}"></td>
@@ -66,8 +70,8 @@
 			  <td><input type="hidden" name="content" value="Need Content and Upload"/>Need Content and Upload</td>
 			  <td>$<input type="hidden" name="content" value="{{request()->content}}">{{request()->content}}</td>
 			  @else
-			  <td>1 pages</td>
-			  <td>33333</td>
+			  <td></td>
+			  <td></td>
 			  @endif
 			</tr>
 			<tr>
@@ -86,6 +90,7 @@
 			  
 			  
 				?>
+				<input type="hidden" name="total" value="{{$total}}">
 			  </td>
 			</tr>
 		  </tbody>
@@ -95,9 +100,12 @@
 	
 	
 	<div class="col-md-6 col-sm-6 col-6">
-	<form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment2') }}">
-    {{ csrf_field() }}
 	<div class="row">
+	 <input type="hidden" id="fname" name="u_id" value="{{request()->u_id}}">
+	 <input type="hidden" id="fname" name="name" value="{{request()->name}}">
+	 <input type="hidden" id="email" name="email" value="{{request()->email}}">
+	 <input type="hidden" id="mbNumber" value="{{request()->password}}" name="password">
+	 <input type="hidden" id="address" value="{{request()->password_confirmation}}" name="password_confirmation">
 	<div class="col-lg-12">
 		<h6>Pay Method By</h6>
 		<div class="form-check form-check-inline">
@@ -121,13 +129,14 @@
 		<button class="btn btn-md btn-primary pull-right">Payment</button>
 	</div>
 	</div>
-	</form>
+	
 	</div>
 	
 	
 	
 </div>
 </div>
+</form>
 </div>
 @endsection
 
