@@ -1,5 +1,17 @@
 @extends('frontend.master')
 @section('maincontent')
+<style>
+.myDiv{
+display:none;
+}  
+#showOne{
+color:purple;
+border:none;
+padding:10px;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="section-block">
 <form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment2') }}">
     {{ csrf_field() }}
@@ -125,21 +137,35 @@
 		<h6>Pay Method By</h6>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="card">
-			<label class="form-check-label" for="inlineRadio1">Card</label>
+			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/stripe.png')}}" height="140px" width="50px"></label>
 		</div>
 		<div class="form-check form-check-inline">
 		  <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="paypal">
-		  <label class="form-check-label" for="inlineRadio2">Paypal</label>
+		  <label class="form-check-label" for="inlineRadio2"><img src="{{asset('frontend/img/payment/paypal.png')}}" height="140px" width="50px"></label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="option1">
+			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="One">
 			<label class="form-check-label" for="inlineRadio1">BD</label>
 		</div>
-	</div>
-		</br>
-		</br>
-		</br>
-	<br>
+
+		<div id="showOne" class="myDiv">
+		<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-2">
+<input class="my-activity" type="radio" name="content" value=""> <img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="50px">
+</div>
+<div class="col-lg-2">
+  <input class="my-activity" type="radio" name="content" value=""> <img src="{{asset('frontend/img/payment/rocket.png')}}" height="120px" width="50px">
+ 
+  </div>
+  <div class="col-lg-7"></div>
+  </div>
+</div>
+<br/>
+<br/>
+	</div >
+		
+	<br/>
 	<div class="col-lg-12">
 		<button class="btn btn-md btn-primary pull-right">Payment</button>
 	</div>
@@ -153,6 +179,27 @@
 </div>
 </form>
 </div>
+
+<script>
+$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+    	var demovalue = $(this).val(); 
+        $("div.myDiv").hide();
+        $("#show"+demovalue).show();
+    });
+});
+
+
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
 @endsection
 
 

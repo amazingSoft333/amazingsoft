@@ -377,13 +377,5 @@ class FrontendController extends Controller
         return view('frontend.contact.contactContent');
     }
 
-    public function userLogin()
-    {
-    return view ('frontend.loginReg.login');
-    }
-
-    public function userRegister()
-    {
-        return view('frontend.loginReg.registration');
-    }
+    
 }
