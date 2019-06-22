@@ -22,7 +22,7 @@
 			<tr>
 			  <th scope="row">{{\App\Product::where(['id' => request()->product_id])->first()->name}}</th>
 			  <td>1</td>
-			  <td>${{$x = \App\Product::where(['id' => request()->product_id])->first()->price}}
+			  <td>${{$p = \App\Product::where(['id' => request()->product_id])->first()->price}}
 				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
 				  <input type="hidden" name="product_unique_id" value="AMP{{ rand(000,9999) }}{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
 			  </td>
@@ -55,20 +55,25 @@
 				  <input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}"></td>
 			  <td></td>
 			  @else
+				<?php $hc = \App\Hostingprice::where(['price' => request()->hosting_cost])->first()->price; ?>
 			  <td>
-				  Need a Hosting
+					{{ \App\Hostingprice::where(['price' => request()->hosting_cost])->first()->hosting}}GB
 			  </td>
-			  <td><input class="my-activity" type="hidden" name="hosting_cost" value="{{request()->hosting_cost}}">${{request()->hosting_cost}}</td>
+			  <td><input class="my-activity" type="hidden" name="hosting_cost" value="{{ \App\Hostingprice::where(['price' => request()->hosting_cost])->first()->price}}">${{ \App\Hostingprice::where(['price' => request()->hosting_cost])->first()->price}}</td>
 			  @endif
 			</tr>
 			<tr>
 			  <th scope="row">Content</th>
 			  @if(request()->demo4 == 'Six')
-			  <td><input type="hidden" name="content_size" value="Content uplode"/>Content upload</td>
-			  <td>$<input type="hidden" name="content" value="{{request()->content}}">{{request()->content}}</td>
+			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 0])->first()->price; @endphp
+			  @php $xc = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 0])->first()->content; @endphp
+			  <td><input type="hidden" name="content_size" value="Content uplode"/>Content upload &nbsp; ({{$xc}}) &nbsp;pages</td>
+			  <td>$<input type="hidden" name="content" value="{{$x}}">{{$x}}</td>
 			  @elseif(request()->demo4 == 'Seven')
-			  <td><input type="hidden" name="content" value="Need Content and Upload"/>Need Content and Upload</td>
-			  <td>$<input type="hidden" name="content" value="{{request()->content}}">{{request()->content}}</td>
+			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->price; @endphp
+			  @php $xcc = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->content; @endphp
+			  <td><input type="hidden" name="content_size" value="Need Content and Upload"/>Need Content and Upload &nbsp; ({{$xcc}}) &nbsp; pages</td>
+			  <td>$<input type="hidden" name="content" value="{{$x}}">{{$x}}</td>
 			  @else
 			  <td></td>
 			  <td></td>
@@ -81,7 +86,7 @@
 				$domain_cost = request()->domain_cost;
 				$content = request()->content;
 				$hosting_cost = request()->hosting_cost;
-				$total =$x + $domain_cost + $hosting_cost + $content;
+				$total =$p + $domain_cost + $hc + $x;
 				
 				echo '$'.$total;
 			  
@@ -107,6 +112,16 @@
 	 <input type="hidden" id="mbNumber" value="{{request()->password}}" name="password">
 	 <input type="hidden" id="address" value="{{request()->password_confirmation}}" name="password_confirmation">
 	<div class="col-lg-12">
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<strong></strong>Please Sign in first<br><br>
+				<ul>						
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 		<h6>Pay Method By</h6>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="card">

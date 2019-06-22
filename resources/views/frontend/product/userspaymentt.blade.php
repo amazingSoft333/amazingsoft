@@ -27,7 +27,7 @@
 					data-stripe-publishable-key="pk_test_vNKWFNuLEe1CmRCNWL33dAAc"
 					id="payment-form" method="post">
 					{{ csrf_field() }}
-							<input type="hidden" name="product_id" value="{{request()->product_id}">
+							<input type="hidden" name="product_id" value="{{request()->product_id}}">
 							<input type="hidden" name="product_unique_id" value="{{request()->product_unique_id}}">
 							<input type="hidden" name="domain" value="{{request()->site}}">
 							<input type="hidden" name="site" value="{{request()->site}}">

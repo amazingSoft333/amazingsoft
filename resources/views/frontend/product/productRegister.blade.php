@@ -138,7 +138,7 @@ label {
 		<div class="container">
 			<div class="section-heading center-holder">
 			<form class="contact-form">
-<h4><strong>Web Demo (Product Price-$30)</strong></h4>
+<h4><strong>Web Demo (Product Price-${{\App\Product::where(['id' => request()->id])->first()->price}})</strong></h4>
 @if(Auth::guard('web')->check())
 	<input type="hidden" name="u_id" value="{{Auth::user()->id}}">
 @else
@@ -286,10 +286,13 @@ label {
 		<div id="showFour" class="myDiv">
 			<p><strong>Your Hosting Cost</strong></p><br>
 			<div class="row">
+			<?php $x = \App\Hostingprice::all(); ?>
+				@foreach($x as $data)
 				<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="hosting_cost" value="10"> 1GB=$10
+					<input class="my-activity" type="radio" name="hosting_cost" value="{{$data->price}}"> {{$data->hosting}}GB=${{$data->price}}
 				</div>
-				<div class="col-lg-2">
+				@endforeach
+				<!--<div class="col-lg-2">
 					<input class="my-activity" type="radio" name="hosting_cost" value="20"> 2GB=$20
 				</div>
 				<div class="col-lg-2">
@@ -330,9 +333,13 @@ label {
 		<!----------------Search your form-------------->
 		<div id="showSix" class="myDiv">
 		  <div class="row">
+		  <?php $hp = \App\Contentmanage::where(['publicationType' => 0])->get() ?>
+		  @foreach($hp as $hpp)
 		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="10">1-5 Page [$10]
+		  <input class="my-activity" type="radio" name="content" value="{{$hpp->price}}">{{$hpp->content}} Page [${{$hpp->price}}]
 		  </div>
+		  @endforeach
+		  <!--
 		  <div class="col-lg-3">
 		  <input class="my-activity" type="radio" name="content" value="20">6-10 Page-[$20] 
 		  </div>
@@ -343,24 +350,20 @@ label {
 		  <input class="my-activity" type="radio" name="content" value="50">31-Above Page-[$50]&nbsp;&nbsp;&nbsp;
 		  </div>
 		  </div>
+		  -->
+		</div>
 		</div>
 		<!----------------Search your form-------------->
 		
 		<!----------------Search your form-------------->
 		<div id="showSeven" class="myDiv">
 		  <div class="row">
+		  <?php $hcp = \App\Contentmanage::where(['publicationType' => 1])->get() ?>
+		  @foreach($hcp as $hcpp)
 		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="20">1-5 Page [$20]<br>
+		  <input class="my-activity" type="radio" name="content" value="{{$hcpp->price}}">{{$hcpp->content}} Page [${{$hcpp->price}}]<br>
 		  </div>
-		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="40">6-10 Page-[$40]<br>
-		  </div>
-		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="60">11-30 Page-[$60]<br/>
-		  </div>
-		  <div class="col-lg-3">
-		  <input class="my-activity" type="radio" name="content" value="100">31-Above Page-[$100]<br/>
-		  </div>
+		  @endforeach
 		  </div>
 		</div>
 		<!----------------Search your form-------------->
@@ -414,7 +417,7 @@ function myFunction() {
 <script type="text/javascript">
 $(document).ready(function() {        
     $(".my-activity").click(function(event) {
-        var total =30;
+        var total =<?php $x = \App\Product::where(['id' => request()->id])->first()->price; echo  $x; ?>;
         $(".my-activity:checked").each(function() {
             total += parseInt($(this).val());
         });

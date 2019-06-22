@@ -28,6 +28,8 @@ Route::get('userpayment','FrontendController@userpayment_index')->name('userpaym
 Route::get('userpayment2','FrontendController@userpayment2_index')->name('userpayment2');
 
 Route::post('payment_store','FrontendController@payment_store')->name('payment_store');
+Route::post('payment_storeee','FrontendController@payWithpaypal')->name('payment_storeee');
+Route::get('paypal_success_status', 'FrontendController@getPaymentStatus')->name('status');
 
 
 /*Client Registration Section*/

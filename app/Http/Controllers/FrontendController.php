@@ -4,8 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\product_order_model;
 use App\Package;
 use App\Blog;
+
+
+
+use Illuminate\Support\Facades\Input;
+use PayPal\Api\Amount;
+use PayPal\Api\Details;
+use PayPal\Api\Item;
+
+use PayPal\Api\Payer;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Api\ItemList;
+use PayPal\Api\Payment;
+use PayPal\Api\PaymentExecution;
+use PayPal\Api\RedirectUrls;
+use PayPal\Api\Transaction;
+use Redirect;
+use Session;
+use URL;
+use DB;
+use \Auth;
 
 
 class FrontendController extends Controller
@@ -47,7 +69,9 @@ class FrontendController extends Controller
 	}
 	public function userpayment2_index(Request $request)
 	{
-		//dd($request);
+		$validatedData = $request->validate([
+        'email' => 'unique:users',
+		]);
 		if(is_null($request->name))
 		{
 			
@@ -64,12 +88,12 @@ class FrontendController extends Controller
 		
 		if($request->method == 'card')
 		{
-			dd($request);
+			//dd($request);
 			return view('frontend.product.userspaymentt',['total'=> $request->total]);
 		}
 		elseif($request->method == 'paypal')
 		{
-			
+			return view('frontend.product.userspaymenttt',['total'=> $request->total]);
 		}
 		else
 		{
@@ -88,7 +112,7 @@ class FrontendController extends Controller
 
 			\Stripe\Charge::create ( array (
 
-					"amount" => 500 * 100,
+					"amount" => $request->amount * 100,
 
 					"currency" => "usd",
 
@@ -98,9 +122,29 @@ class FrontendController extends Controller
  
 			) );
 
+			product_order_model::create([
+            'product_id' => $request->product_id,
+            'product_unique_id' => $request->product_unique_id,
+            'domain' => $request->domain,
+            'site' => $request->site,
+            'doamin_lid' => $request->doamin_lid,
+            'domain_pass' => $request->domain_pass,
+            'search' => $request->search,
+            'domain_cost' => $request->domain_cost,
+            'demo2' => $request->demo2,
+			
+            'cpanel_link' => $request->cpanel_link,
+            'cpanel_id' => $request->cpanel_id,
+            'cpanel_pass' => $request->cpanel_pass,
+            'hosting_cost' => $request->hosting_cost,
+            'doamin_lid' => $request->doamin_lid,
+            'content_size' => $request->content_size,
+            'content' => $request->content,
+            'total' => $request->amount,
+			]);
 
 			
-			return view('frontend.product.successfull')->with('msg','Successfully Complet Your Order');
+			return view('frontend.product.successfull');
 														
 
 
@@ -114,7 +158,8 @@ class FrontendController extends Controller
 		}
 
 		 catch ( \Exception $e ) {
-			return view('frontend.product.successfull')->with('msg','Unsuccessful!! Please Try Again Later');
+			 dd($e);
+			return view('frontend.product.successfull');
 			/*Session::flash ( 'fail-message', "Error! Please Try again." );
 			
 			return Redirect::back ();*/
@@ -126,6 +171,190 @@ class FrontendController extends Controller
 
 
     }
+	
+	
+	
+	
+	
+	
+	
+	
+	private $_api_context;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+	public function __construct()
+	{
+
+			/** PayPal api context **/
+			$paypal_conf = \Config::get('paypal');
+			$this->_api_context = new ApiContext(new OAuthTokenCredential(
+				$paypal_conf['client_id'],
+				$paypal_conf['secret'])
+			);
+			$this->_api_context->setConfig($paypal_conf['settings']);
+	}
+	public function payWithpaypal(Request $request)
+	{
+		product_order_model::create([
+            'product_id' => $request->product_id,
+            'product_unique_id' => $request->product_unique_id,
+            'domain' => $request->domain,
+            'site' => $request->site,
+            'doamin_lid' => $request->doamin_lid,
+            'domain_pass' => $request->domain_pass,
+            'search' => $request->search,
+            'domain_cost' => $request->domain_cost,
+            'demo2' => $request->demo2,
+			
+            'cpanel_link' => $request->cpanel_link,
+            'cpanel_id' => $request->cpanel_id,
+            'cpanel_pass' => $request->cpanel_pass,
+            'hosting_cost' => $request->hosting_cost,
+            'doamin_lid' => $request->doamin_lid,
+            'content_size' => $request->content_size,
+            'content' => $request->content,
+            'total' => $request->amount,
+			]);
+			
+		
+			$payer = new Payer();
+				$payer->setPaymentMethod('paypal');
+				
+				$item_1 = new Item();
+				$item_1->setName('Item 1') /** item name **/
+							->setCurrency('USD')
+							->setQuantity(1)
+						    ->setPrice($request->get('amount')); /** unit price **/
+
+				$item_list = new ItemList();
+				$item_list->setItems(array($item_1));
+				
+				
+				
+				
+				/*Amount ta add krte hobe*/
+				
+				$amount = new Amount();
+				$amount->setCurrency('USD')
+							 ->setTotal($request->get('amount'));
+				/*end*/
+				$transaction = new Transaction();
+				$transaction->setAmount($amount)
+							 ->setItemList($item_list)
+							 ->setDescription('Your transaction description');
+				/*payment succefull hole*/
+				$redirect_urls = new RedirectUrls();
+						$redirect_urls->setReturnUrl(URL::route('status')) /** Specify return URL **/
+						->setCancelUrl(URL::route('status'));
+				/*End*/
+				$payment = new Payment();
+						$payment->setIntent('Sale')
+						  ->setPayer($payer)
+						  ->setRedirectUrls($redirect_urls)
+						  ->setTransactions(array($transaction));
+			/** dd($payment->create($this->_api_context));exit; **/
+			try {
+					$payment->create($this->_api_context);
+				}
+			catch (\PayPal\Exception\PPConnectionException $ex) {
+				if (\Config::get('app.debug')) {
+					\Session::put('error', 'Connection timeout');
+					return Redirect::route('paywithpaypal');
+				} else {
+
+					\Session::put('error', 'Some error occur, sorry for inconvenient');
+					return Redirect::route('paywithpaypal');
+				}
+			}
+
+		foreach ($payment->getLinks() as $link) {
+				if ($link->getRel() == 'approval_url') {
+					$redirect_url = $link->getHref();
+					break;
+	}
+	}
+
+	/** add payment ID to session **/
+			Session::put('paypal_payment_id', $payment->getId());
+		if (isset($redirect_url)) {
+			/** redirect to paypal **/
+				return Redirect::away($redirect_url);
+			}
+
+		\Session::put('error', 'Unknown error occurred');
+			return Redirect::route('paywithpaypal');
+	}
+		
+		
+		
+		
+	public function getPaymentStatus()
+    {
+        /** Get the payment ID before session clear **/
+        $payment_id = Session::get('paypal_payment_id');
+
+		/** clear the session payment ID **/
+        Session::forget('paypal_payment_id');
+        if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
+
+			\Session::put('error', 'Payment failed');
+				return Redirect::route('home');
+		}
+
+		$payment = Payment::get($payment_id, $this->_api_context);
+        $execution = new PaymentExecution();
+        $execution->setPayerId(Input::get('PayerID'));
+
+		/**Execute the payment **/
+        $result = $payment->execute($execution, $this->_api_context);
+
+		if ($result->getState() == 'approved') {
+
+				\Session::put('success', 'Payment success');
+            return Redirect::route('home');
+		}
+
+			\Session::put('error', 'Payment failed');
+        return Redirect::route('about');
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public function success_index()
+	{
+		return view('frontend.product.successfull');
+	}
+	
+	
 	/*product_registration*/
     public function blogContent()
     {
