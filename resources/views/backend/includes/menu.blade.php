@@ -111,8 +111,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('productManage')}}"><i class="fa fa-circle-o"></i>Hosting Price</a></li>
-            <li><a href="{{route('productImageAdd')}}"><i class="fa fa-circle-o"></i>Content Price</a></li>
+            <li><a href="{{route('manageHosting')}}"><i class="fa fa-circle-o"></i>Hosting Price</a></li>
+            <li><a href="{{route('manageContent')}}"><i class="fa fa-circle-o"></i>Content Price</a></li>
           </ul>
         </li>
 		
