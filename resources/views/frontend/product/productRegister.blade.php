@@ -377,7 +377,7 @@ label {
 <strong>Total Amount (USD)</strong>:
 </div>
 <div class="col-md-9">
-<input type="text" name="amount" value="30" id="amount" />
+<input type="text" name="amount" value="{{\App\Product::where(['id' => request()->id])->first()->price}}" id="amount" />
 </div>
 </div>
 </div>

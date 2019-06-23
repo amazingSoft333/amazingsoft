@@ -89,7 +89,7 @@ class FrontendController extends Controller
 		if($request->method == 'card')
 		{
 			//dd($request);
-			return view('frontend.product.userspaymentt',['total'=> $request->total]);
+			return view('frontend.product.userspaymentt',['total'=> $request->total, 'u_id' => Auth::user()->id,'email' => Auth::user()->email]);
 		}
 		elseif($request->method == 'paypal')
 		{
@@ -97,14 +97,13 @@ class FrontendController extends Controller
 		}
 		else
 		{
-			dd($request->method);
+			return view('frontend.product.userspaymentttt',['total'=> $request->total]);
 		}
 		
 	}
 	public function payment_store(Request $request)
     {
 		
-	//dd($request);
 			
 	\Stripe\Stripe::setApiKey ( 'sk_test_RyFAiUILwhx6K0gz2RxbhC9S' );  
 
@@ -121,8 +120,10 @@ class FrontendController extends Controller
 					"description" => "Test payment."
  
 			) );
-
+			
 			product_order_model::create([
+            'email' => $request->email,
+            'u_id' => $request->customer,
             'product_id' => $request->product_id,
             'product_unique_id' => $request->product_unique_id,
             'domain' => $request->domain,
@@ -141,6 +142,7 @@ class FrontendController extends Controller
             'content_size' => $request->content_size,
             'content' => $request->content,
             'total' => $request->amount,
+            'method' => $request->method,
 			]);
 
 			
@@ -171,14 +173,6 @@ class FrontendController extends Controller
 
 
     }
-	
-	
-	
-	
-	
-	
-	
-	
 	private $_api_context;
     /**
      * Display a listing of the resource.
@@ -199,7 +193,9 @@ class FrontendController extends Controller
 	public function payWithpaypal(Request $request)
 	{
 		product_order_model::create([
-            'product_id' => $request->product_id,
+            'email' => $request->email,
+			'u_id' => $request->u_id,
+			'product_id' => $request->product_id,
             'product_unique_id' => $request->product_unique_id,
             'domain' => $request->domain,
             'site' => $request->site,
@@ -217,6 +213,7 @@ class FrontendController extends Controller
             'content_size' => $request->content_size,
             'content' => $request->content,
             'total' => $request->amount,
+            'method' => $request->method,
 			]);
 			
 		
@@ -325,7 +322,36 @@ class FrontendController extends Controller
 	
 	
 	
-	
+	public function paymentbd_store(Request $request)
+	{
+			//dd($request);
+			product_order_model::create([
+            'email' => $request->email,
+			'u_id' => $request->u_id,
+			'product_id' => $request->product_id,
+            'product_unique_id' => $request->product_unique_id,
+            'domain' => $request->domain,
+            'site' => $request->site,
+            'doamin_lid' => $request->doamin_lid,
+            'domain_pass' => $request->domain_pass,
+            'search' => $request->search,
+            'domain_cost' => $request->domain_cost,
+            'demo2' => $request->demo2,
+			
+            'cpanel_link' => $request->cpanel_link,
+            'cpanel_id' => $request->cpanel_id,
+            'cpanel_pass' => $request->cpanel_pass,
+            'hosting_cost' => $request->hosting_cost,
+            'doamin_lid' => $request->doamin_lid,
+            'content_size' => $request->content_size,
+            'content' => $request->content,
+            'total' => $request->amount,
+            'method' => $request->method,
+            'mobile' => $request->mobile,
+            'transaction' => $request->transaction,
+			]);
+			return view('frontend.product.successfull');
+	}
 	
 	
 	

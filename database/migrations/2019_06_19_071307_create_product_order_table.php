@@ -18,6 +18,8 @@ class CreateProductOrderTable extends Migration
 			
             $table->string('product_id')->nullable();
             $table->string('product_unique_id')->nullable();
+            $table->string('u_id')->nullable();
+            $table->string('email')->nullable();
             $table->string('domain')->nullable();
             $table->string('site')->nullable();
             $table->string('doamin_lid')->nullable();
@@ -32,6 +34,9 @@ class CreateProductOrderTable extends Migration
             $table->string('content_size')->nullable();
             $table->string('content')->nullable();
             $table->string('total')->nullable();
+            $table->string('method')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('transaction')->nullable();
 			
             $table->timestamps();
         });

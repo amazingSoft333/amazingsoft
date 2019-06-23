@@ -1,5 +1,6 @@
 @extends('clientField.master')
 @section('maincontent')
+<?php $x = \App\product_order_model::all(); ?>
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr class="bg-primary">

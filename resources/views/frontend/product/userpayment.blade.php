@@ -16,13 +16,15 @@ padding:10px;
 <form class="form-horizontal" role="form" method="GET" action="{{ route('userpayment2') }}">
     {{ csrf_field() }}
 <div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-12">
 <div class="row serv-section-2">
 		<div class="serv-section-2-icon"> <i class="icon-credit-card2"></i> 
 		</div>
 
 
-	<div class="col-md-6 col-sm-6 col-6">
-	   <table class="table table-hover table-border">
+	<div class="col-md-6 col-sm-12 col-md-6">
+	   <table class="table table-hover table-border table-responsive">
 		  <thead>
 			<tr>
 			  <th scope="col">Product Name</th>
@@ -43,6 +45,7 @@ padding:10px;
 			  <th scope="row">Domain</th>
 			  @if(request()->demo1 == 'One')
 			  <td>
+							<?php $domain_cost = 0; ?>
 							<input type="hidden" name="domain" value="Already have a doamin">
 							<input type="hidden" name="site" value="{{request()->site}}">
 							<input type="hidden" name="doamin_lid" value="{{request()->doamin_lid}}">
@@ -54,13 +57,16 @@ padding:10px;
 			   <td>
 							<a href="{{request()->search}}"><input type="hidden" name="search" value="{{request()->search}}">{{request()->search}}</a>
 			   </td>
-			  <td><input type="hidden" name="domain_cost" value="{{request()->domain_cost}}">${{request()->domain_cost}}</td>  
+			  <td>
+			  <?php $domain_cost = request()->domain_cost; ?>
+			  <input type="hidden" name="domain_cost" value="{{request()->domain_cost}}">${{request()->domain_cost}}</td>  
 			  @endif
 			</tr>
 			<tr>
 			  <th scope="row">Hosting</th>
 			  @if(request()->demo2 == 'Three')
 			  <td>Already Have a Hosting
+				  <?php $hc = 0; ?>
 				  <input type="hidden" name="demo2" value="Already Have a Hosting">
 				  <input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
 				  <input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
@@ -85,21 +91,25 @@ padding:10px;
 			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->price; @endphp
 			  @php $xcc = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->content; @endphp
 			  <td><input type="hidden" name="content_size" value="Need Content and Upload"/>Need Content and Upload &nbsp; ({{$xcc}}) &nbsp; pages</td>
-			  <td>$<input type="hidden" name="content" value="{{$x}}">{{$x}}</td>
+			  <td>
+				
+				$<input type="hidden" name="content" value="{{$x}}">{{$x}}
+			  </td>
 			  @else
-			  <td></td>
-			  <td></td>
+				<?php $x = 0; ?>
+			  <td>No Need</td>
+			  <td>Any Content</td>
 			  @endif
 			</tr>
 			<tr>
 			  <th scope="row"></th>
 			  <th>Total</th>
 			  <td><?php
-				$domain_cost = request()->domain_cost;
+				
 				$content = request()->content;
 				$hosting_cost = request()->hosting_cost;
 				$total =$p + $domain_cost + $hc + $x;
-				
+
 				echo '$'.$total;
 			  
 			  
@@ -116,7 +126,7 @@ padding:10px;
 	
 	
 	
-	<div class="col-md-6 col-sm-6 col-6">
+	<div class="col-md-6 col-sm-12 col-6">
 	<div class="row">
 	 <input type="hidden" id="fname" name="u_id" value="{{request()->u_id}}">
 	 <input type="hidden" id="fname" name="name" value="{{request()->name}}">
@@ -149,18 +159,17 @@ padding:10px;
 		</div>
 
 		<div id="showOne" class="myDiv">
-		<div class="row">
-		<div class="col-lg-1"></div>
-		<div class="col-lg-2">
-<input class="my-activity" type="radio" name="content" value=""> <img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="50px">
-</div>
-<div class="col-lg-2">
-  <input class="my-activity" type="radio" name="content" value=""> <img src="{{asset('frontend/img/payment/rocket.png')}}" height="120px" width="50px">
- 
-  </div>
-  <div class="col-lg-7"></div>
-  </div>
-</div>
+			<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="bd" value="bkash"> <img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="50px">
+			</div>
+			<div class="col-lg-2">
+					<input class="my-activity" type="radio" name="bd" value="rocket"> <img src="{{asset('frontend/img/payment/rocket.png')}}" height="120px" width="50px"> 
+			</div>
+					<div class="col-lg-7"></div>
+			</div>
+		</div>
 <br/>
 <br/>
 	</div >
@@ -178,6 +187,8 @@ padding:10px;
 </div>
 </div>
 </form>
+</div>
+</div>
 </div>
 
 <script>

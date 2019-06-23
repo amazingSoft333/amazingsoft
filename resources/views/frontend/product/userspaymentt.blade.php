@@ -27,6 +27,8 @@
 					data-stripe-publishable-key="pk_test_vNKWFNuLEe1CmRCNWL33dAAc"
 					id="payment-form" method="post">
 					{{ csrf_field() }}
+							<input type="hidden" name="email" value="{{$email}}">
+							<input type="hidden" name="customer" value="{{$u_id}}">
 							<input type="hidden" name="product_id" value="{{request()->product_id}}">
 							<input type="hidden" name="product_unique_id" value="{{request()->product_unique_id}}">
 							<input type="hidden" name="domain" value="{{request()->site}}">
@@ -42,6 +44,7 @@
 							<input type="hidden" name="hosting_cost" value="{{request()->hosting_cost}}">
 							<input type="hidden" name="content_size" value="Content uplode"/>
 							<input type="hidden" name="content" value="{{request()->content}}">
+							<input type="hidden" name="method" value="{{request()->method}}">
 					<div class='form-row'>
 						<div class='col-xs-12 form-group required'>
 							<label class='control-label'>Name on Card</label> <input

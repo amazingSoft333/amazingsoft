@@ -26,10 +26,12 @@ Route::get('/contact','FrontendController@contactContent')->name('contact');
 
 Route::get('userpayment','FrontendController@userpayment_index')->name('userpayment');
 Route::get('userpayment2','FrontendController@userpayment2_index')->name('userpayment2');
-
+/*payment*/
 Route::post('payment_store','FrontendController@payment_store')->name('payment_store');
 Route::post('payment_storeee','FrontendController@payWithpaypal')->name('payment_storeee');
 Route::get('paypal_success_status', 'FrontendController@getPaymentStatus')->name('status');
+
+Route::post('payment_storeeebd','FrontendController@paymentbd_store')->name('payment_storeeebd');
 
 
 /*Client Registration Section*/
