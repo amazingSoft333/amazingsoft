@@ -69,19 +69,20 @@ class FrontendController extends Controller
 	}
 	public function userpayment2_index(Request $request)
 	{
-		$validatedData = $request->validate([
-        'email' => 'unique:users',
-		]);
-		if(is_null($request->name))
+
+		if($request->has('name'))
 		{
-			
-		}
-		else{
-		User::create([
+			$validatedData = $request->validate([
+			'email' => 'unique:users',
+			]);
+			User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-        ]);
+			]);
+		}
+		else{
+			
 		}
 		
 		
@@ -89,7 +90,7 @@ class FrontendController extends Controller
 		if($request->method == 'card')
 		{
 			//dd($request);
-			return view('frontend.product.userspaymentt',['total'=> $request->total, 'u_id' => Auth::user()->id,'email' => Auth::user()->email]);
+			return view('frontend.product.userspaymentt',['total'=> $request->total,'email' => $request->email]);
 		}
 		elseif($request->method == 'paypal')
 		{

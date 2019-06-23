@@ -133,11 +133,15 @@ padding:10px;
 	
 	<div class="col-md-6 col-sm-12 col-6">
 	<div class="row">
-	 <input type="hidden" id="fname" name="u_id" value="{{request()->u_id}}">
+	@if(Auth::guard('web')->check())
+	 <input type="hidden" id="fname" name="u_id" value="{{Auth::user()->id}}">
+	 <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
+	@else
 	 <input type="hidden" id="fname" name="name" value="{{request()->name}}">
 	 <input type="hidden" id="email" name="email" value="{{request()->email}}">
 	 <input type="hidden" id="mbNumber" value="{{request()->password}}" name="password">
 	 <input type="hidden" id="address" value="{{request()->password_confirmation}}" name="password_confirmation">
+	@endif
 	<div class="col-lg-12">
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
@@ -166,6 +170,7 @@ padding:10px;
 		</div>
 		</div>
 		<div id="showOne" class="myDiv">
+<!--
 <<<<<<< HEAD
 			<div class="row">
 			<div class="col-lg-1"></div>
@@ -179,6 +184,7 @@ padding:10px;
 			</div>
 		</div>
 =======
+-->
 		<div class="row">
 	
 		<div class="col-lg-12">
@@ -197,7 +203,6 @@ padding:10px;
 
   </div>
 </div>
->>>>>>> 4446eef50fcd5d662f616c263b1a21c9d13ab893
 <br/>
 <br/>
 	</div >
