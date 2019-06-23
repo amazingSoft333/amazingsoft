@@ -11,8 +11,7 @@
 		
 		<form class="form-group" method="POST" id="payment-form"  action="{{route('payment_storeee')}}">
 		  {{ csrf_field() }}
-		  					<input type="hidden" name="email" value="{{$email}">	
-		  					<input type="hidden" name="u_id" value="{{$u_id}}">	
+		  					<input type="hidden" name="email" value="{{$email}}">	
 							<input type="hidden" name="product_id" value="{{request()->product_id}}">
 							<input type="hidden" name="product_unique_id" value="{{request()->product_unique_id}}">
 							<input type="hidden" name="domain" value="{{request()->site}}">

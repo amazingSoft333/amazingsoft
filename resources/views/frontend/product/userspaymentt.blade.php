@@ -2,7 +2,7 @@
 @section('maincontent')
 <div class="section-block">
 <div class="container">
-<div class="row serv-section-2">
+<div class="row">
 		<div class="serv-section-2-icon"> <i class="icon-credit-card2"></i> 
 		</div>
 

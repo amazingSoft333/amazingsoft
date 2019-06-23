@@ -170,21 +170,6 @@ padding:10px;
 		</div>
 		</div>
 		<div id="showOne" class="myDiv">
-<!--
-<<<<<<< HEAD
-			<div class="row">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="bd" value="bkash"> <img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="50px">
-			</div>
-			<div class="col-lg-2">
-					<input class="my-activity" type="radio" name="bd" value="rocket"> <img src="{{asset('frontend/img/payment/rocket.png')}}" height="120px" width="50px"> 
-			</div>
-					<div class="col-lg-7"></div>
-			</div>
-		</div>
-=======
--->
 		<div class="row">
 	
 		<div class="col-lg-12">

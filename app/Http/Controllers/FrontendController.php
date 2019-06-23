@@ -94,11 +94,11 @@ class FrontendController extends Controller
 		}
 		elseif($request->method == 'paypal')
 		{
-			return view('frontend.product.userspaymenttt',['total'=> $request->total]);
+			return view('frontend.product.userspaymenttt',['total'=> $request->total,'email' => $request->email]);
 		}
 		else
 		{
-			return view('frontend.product.userspaymentttt',['total'=> $request->total]);
+			return view('frontend.product.userspaymentttt',['total'=> $request->total,'email' => $request->email]);
 		}
 		
 	}
