@@ -3,11 +3,16 @@
 <style>
 .myDiv{
 display:none;
+
 }  
 #showOne{
 color:purple;
 border:none;
 padding:10px;
+}
+.myDiv .rocket{
+	left:22px;
+	
 }
 
 </style>
@@ -145,20 +150,23 @@ padding:10px;
 			</div>
 		@endif
 		<h6>Pay Method By</h6>
+		
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="card">
-			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/stripe.png')}}" height="140px" width="50px"></label>
+			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/1.jpg')}}" style="width:100px;height:20px;"></label>
 		</div>
+		
 		<div class="form-check form-check-inline">
 		  <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="paypal">
-		  <label class="form-check-label" for="inlineRadio2"><img src="{{asset('frontend/img/payment/paypal.png')}}" height="140px" width="50px"></label>
+		  <label class="form-check-label" for="inlineRadio2"><img src="{{asset('frontend/img/payment/paypal.png')}}" height="140px" width="70px"></label>
 		</div>
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="One">
-			<label class="form-check-label" for="inlineRadio1">BD</label>
+			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/flag001.png')}}" style="width:35px;height:20px;"></label>
 		</div>
-
+		</div>
 		<div id="showOne" class="myDiv">
+<<<<<<< HEAD
 			<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-2">
@@ -170,16 +178,36 @@ padding:10px;
 					<div class="col-lg-7"></div>
 			</div>
 		</div>
+=======
+		<div class="row">
+	
+		<div class="col-lg-12">
+		&nbsp;
+		<div class="form-check form-check-inline bkash">
+			<input class="form-check-input" type="radio" name="content" id="inlineRadio1" value="">
+			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="75px"></label>
+		</div>
+		
+		<div class="form-check form-check-inline rocket">
+		  <input class="form-check-input" type="radio" name="content" id="inlineRadio2" value="">
+		  <label class="form-check-label" for="inlineRadio2"><img src="{{asset('frontend/img/payment/rocket01.png')}}" style="width:35px;height:20px;"></label>
+		</div>
+
+		
+
+  </div>
+</div>
+>>>>>>> 4446eef50fcd5d662f616c263b1a21c9d13ab893
 <br/>
 <br/>
 	</div >
 		
 	<br/>
+	
+	</div>
 	<div class="col-lg-12">
 		<button class="btn btn-md btn-primary pull-right">Payment</button>
 	</div>
-	</div>
-	
 	</div>
 	
 	
