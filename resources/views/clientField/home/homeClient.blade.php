@@ -14,8 +14,6 @@
 	<tbody>
 	@foreach($x as $x)
 		<tr>
-
-			<th scope="row"></th>
 			<td>{{$x->id}}</td>
 			<td>{{$x->product_unique_id}}</td>
 			<td>{{$x->email}}</td>
