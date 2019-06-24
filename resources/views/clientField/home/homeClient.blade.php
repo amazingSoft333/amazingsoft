@@ -1,6 +1,6 @@
 @extends('clientField.master')
 @section('maincontent')
-<?php $x = \App\product_order_model::all(); ?>
+<?php $x = \App\product_order_model::where(['email' => Auth::user()->email])->get(); ?>
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr class="bg-primary">
