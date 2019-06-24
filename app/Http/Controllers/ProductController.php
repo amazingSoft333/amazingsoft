@@ -72,8 +72,10 @@ public function saveProduct(Request $request)
   $data = [
                        'name' => $request->name,
                        'category' => $request->category,
+                       'link' => $request->link,
                        'information' => $request->information,
                        'price'=>$request->price,
+                       'feature' => $request->feature,
                        'imageProduct' => $imageProduct,
      ];
   $test=Product::create($data);
@@ -116,8 +118,10 @@ public function updateProduct(Request $request,$id)
      $data = [
                 'name' => $request->name,
                  'category' => $request->category,
+                 'link' => $request->link,
                  'information' => $request->information,
                  'price'=>$request->price,
+                 'feature' => $request->feature,
                   'imageProduct' => $photo,
      ];
                DB::table('products')->where('id', $id)->update($data);
@@ -130,8 +134,10 @@ public function updateProduct(Request $request,$id)
      [
         'name' => $request->name,
         'category' => $request->category,
+        'link' => $request->link,
         'information' => $request->information,
         'price'=>$request->price,
+        'feature' => $request->feature,
         'imageProduct' =>$oldimage->imageProduct,
      ];
      

@@ -47,24 +47,42 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Website Feature</label>
+                  <label for="exampleInputEmail1">Product Visit Link</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="link">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Website Description</label>
                 <textarea id="textareaa" class="form-control"name="information">
                                            
                     </textarea>
 
                 </div>
 
+                <div class="row">
+                <div class="col-xs-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Product Price</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name="price">
                 </div>
-
-
+                </div>
+                <div class="col-xs-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Web Image</label>
                   <input type="file" class="form-control" id="exampleInputEmail1" name="imageProduct">
                 </div>
-              
+                </div>
+                
+              </div>
+
+
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Website Feature</label>
+                <textarea id="textarea001" class="form-control"name="feature">
+                                           
+                    </textarea>
+
+                </div>
 
  
               </div>
@@ -93,24 +111,30 @@
                   <th>Sl No</th>
                   <th>Product Name</th>
                   <th>Product Category</th>
+                  <th>Link</th>
                   <th>Information</th>
                   <th>Price</th>
+                  <th>Feature</th>
                   <th>Image</th>
+                 
                   <th>Action</th>
                 </tr>
                 </thead>
                 @php($i=1)
                 @php($k=1)
                 @php($j=0)
+                @php($b=1)
+                @php($a=0)
                 <tbody>
                 @foreach($products as $product)
                 <tr>
                 <td>{{$i++}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->category}}</td>
+                <td>{{$product->link}}</td>
                 <td>{!!$product->information!!}</td>
                 <td>{{$product->price}}</td>
-                
+                <td>{!!$product->feature!!}</td>
                 
                 <td>{{Html::image('Image/ProductImage/'.$product->imageProduct,'imageProduct',['style'=>'width:160px;height:140px'])}}</td>
                   
@@ -160,7 +184,14 @@
                 </div>
 
                 <div class="form-group">
-                <label for="exampleInputEmail1">Features</label>
+                  <label for="exampleInputEmail1">Product Visit Link</label>
+                  <input type="text" value="{{$product->link}}" class="form-control" id="exampleInputEmail1" name="link">
+				  
+				  
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputEmail1">Description</label>
                 <textarea id="textarea{{$j=$k++}}" class="form-control"name="information">{{$product->information}}</textarea>
                 </div>
 
@@ -177,6 +208,11 @@
 
                   {{Html::image('Image/ProductImage/'.$product->imageProduct,'imageProduct',['style'=>'width:100px;height:120px'])}}
                  </div>
+
+                 <div class="form-group">
+                <label for="exampleInputEmail1">Feature</label>
+                <textarea id="textarea002{{$a=$b++}}" class="form-control"name="feature">{{$product->feature}}</textarea>
+                </div>
 
  
               </div>
@@ -198,6 +234,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
           <script>
       $('#textarea{{$j}}').summernote({
+        tabsize: 2,
+        height:100
+      });
+    </script>
+
+<script>
+      $('#textarea002{{$a}}').summernote({
         tabsize: 2,
         height:100
       });
@@ -228,6 +271,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 <script>
       $('#textareaa').summernote({
+        tabsize: 2,
+        height:100
+      });
+
+      $('#textarea001').summernote({
         tabsize: 2,
         height:100
       });

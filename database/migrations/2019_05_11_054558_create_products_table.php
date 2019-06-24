@@ -17,7 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->integer('category')->nullable();
+            $table->string('link')->nullable();
             $table->longText('information')->nullable();
+            $table->longText('feature')->nullable();
             $table->string('price')->nullable();
             $table->text('imageProduct')->nullable();
             $table->timestamps();
