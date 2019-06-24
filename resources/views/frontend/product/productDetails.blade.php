@@ -38,7 +38,7 @@
 						<div class="single-product-price">
 							<h4>Price: $&nbsp;{{$y->price}}</h4> 
 						</div>
-						<p>{{$y->information}}</p>
+						<p>{!!$y->information!!}</p>
 						<div class="quantity mt-30">
 						<div class="pricing-list">
 						<div class="pricing-list-button"> <a href="{{route('productRegister',['id'=>$y->id])}}">Buy Now</a>
@@ -54,9 +54,9 @@
 									</li>
 								</ul>
 							</div>
-							<div class="display-b"> <span>Product Visit Link: </span> 
+							<div class="display-b"> <span>Product Visit Link:</span> 
 								<ul>
-									<li>789654</li>
+									<li><a href="{{$y->link}}" target=_blank;>Click Here</a></li>
 								</ul>
 							</div>
 						</div>
@@ -78,18 +78,14 @@
 							</ul>
 							<div id='tab-1' class="clearfix product-tab-body">
 								<h3>Product Description</h3> 
-								<p>{{$y->information}}</p>
+								<p>{!!$y->information!!}</p>
 							</div>
 							<div id='tab-2' class="clearfix product-tab-body">
 								<h3>Product Features</h3> 
-								<ul>
-									<li><span>Name:</span>Effective Finance Solutions</li>
-									<li><span>Category:</span>Book</li>
-									<li><span>Size:</span>15x20 cm</li>
-									<li><span>Weight:</span>0.55 kg</li>
-									<li><span>Material:</span>Paper</li>
-									<li><span>Color:</span>White & Red</li>
-								</ul>
+								
+									{!!$y->feature!!}
+									
+								
 							</div>
 							
 						</div>

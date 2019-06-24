@@ -1,5 +1,11 @@
 @extends('frontend.master')
 @section('maincontent')
+<style>
+.total{
+	color:#fff;
+}
+
+</style>
 <div class="section-block">
 <div class="container">
 <div class="row">
@@ -7,13 +13,10 @@
 		</div>
 
 
-		<div class="col-md-6 col-sm-6 col-6">
+		<div class="col-md-12 col-sm-12 col-12">
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -45,34 +48,35 @@
 							<input type="hidden" name="content" value="{{request()->content}}">
 							<input type="hidden" name="method" value="{{request()->method}}">
 					<div class='form-row'>
-						<div class='col-xs-12 form-group required'>
+						<div class='col-md-12 form-group required'>
 							<label class='control-label'>Name on Card</label> <input
 								class='form-control' size='4' type='text'>
 						</div>
 					</div>
 					<div class='form-row'>
-						<div class='col-xs-12 form-group card required'>
+						<div class='col-md-12 form-group card required'>
 							<label class='control-label'>Card Number</label> <input
 								autocomplete='off' class='form-control card-number' size='20'
 								type='text'>
 						</div>
 					</div>
 					<div class='form-row'>
-						<div class='col-xs-4 form-group cvc required'>
+						<div class='col-md-4 form-group cvc required'>
 							<label class='control-label'>CVC</label> <input
 								autocomplete='off' class='form-control card-cvc'
 								placeholder='ex. 311' size='4' type='text'>
 						</div>
-						<div class='col-xs-4 form-group expiration required'>
+						<div class='col-md-4 form-group expiration required'>
 							<label class='control-label'>Expiration</label> <input
 								class='form-control card-expiry-month' placeholder='MM' size='2'
 								type='text'>
 						</div>
-						<div class='col-xs-4 form-group expiration required'>
-							<label class='control-label'> </label> <input
-								class='form-control card-expiry-year' placeholder='YYYY'
-								size='4' type='text'>
+						<div class='col-md-4 form-group expiration required'>
+							<label class='control-label'>Year</label> <input
+								class='form-control card-expiry-year' placeholder='YYYY' size='2'
+								type='text'>
 						</div>
+						
 					</div>
 					<div class='form-row'>
 						<div class='col-md-12'>
@@ -84,7 +88,7 @@
 					<div class='form-row'>
 						<div class='col-md-12 form-group'>
 							<button class='form-control btn btn-primary submit-button'
-								type='submit' style="margin-top: 10px;">Pay »</button>
+								type='submit' style="margin-top: 10px; color:#fff;">Pay »</button>
 						</div>
 					</div>
 					<div class='form-row'>
@@ -105,13 +109,7 @@
 			<div class='col-md-4'></div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-1.12.3.min.js"
-		integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous"></script>
+
 	<script>
 		$(function() {
 			  $('form.require-validation').bind('submit', function(e) {

@@ -5,23 +5,22 @@
 	<thead>
 		<tr class="bg-primary">
 			<th>ID</th>
-			<th>Order No</th>
-			<th>Order Value</th>
-			<th>Publication Status</th>
-			<th>Action</th>
+			<th>Product_unique Id</th>
+			<th>Email</th>
+			
 
 		</tr>
 	</thead>
 	<tbody>
-
+	@foreach($x as $x)
 		<tr>
-			<th scope="row"></th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
 
+			<th scope="row"></th>
+			<td>{{$x->id}}</td>
+			<td>{{$x->product_unique_id}}</td>
+			<td>{{$x->email}}</td>
+		</tr>
+@endforeach
 	</tbody>
 </table>
 @endsection
