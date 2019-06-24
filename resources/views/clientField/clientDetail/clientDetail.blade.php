@@ -45,11 +45,6 @@
 
 											<input type="hidden" value="{{$x->id}}" class="form-control" name="id">
 										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Email</label>
-											<input type="email" class="form-control" value="{{$x->email}}" id="exampleInputPassword1" name="email"
-												>
-										</div>
 									   
 								</div>
 								<div class="modal-footer">

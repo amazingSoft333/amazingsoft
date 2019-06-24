@@ -14,8 +14,11 @@
 	<tbody>
 	@foreach($x as $x)
 		<tr>
+<<<<<<< HEAD
 
 			
+=======
+>>>>>>> c979a8060ddc4eea44c14e88af3698186dee35fa
 			<td>{{$x->id}}</td>
 			<td>{{$x->product_unique_id}}</td>
 			<td>{{$x->email}}</td>
