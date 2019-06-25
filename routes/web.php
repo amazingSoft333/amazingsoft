@@ -43,8 +43,8 @@ Route::get('notification','ClientregController@notification_index')->name('notif
 
 
 Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
+Route::get('/client/paymentHistory','ClientregController@clientPayment')->name('clientPayment');
 Route::patch('/client/update/{id}','ClientregController@clientUpdate')->name('clientUpdate');
-
 Route::get('setting','ClientregController@setting_index')->name('setting');
 Route::post('changePassword','ClientregController@current_index')->name('current');
 /*End Client Registration Section*/
