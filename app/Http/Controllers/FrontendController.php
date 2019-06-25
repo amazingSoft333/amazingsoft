@@ -69,7 +69,7 @@ class FrontendController extends Controller
 	}
 	public function userpayment2_index(Request $request)
 	{
-
+		
 		if($request->has('name'))
 		{
 			$validatedData = $request->validate([
@@ -92,15 +92,15 @@ class FrontendController extends Controller
 		if($request->method == 'card')
 		{
 			//dd($request);
-			return view('frontend.product.userspaymentt',['total'=> $request->total,'email' => $request->email]);
+			return view('frontend.product.userspaymentt',['total'=> $request->total,'email' => $request->email,'status' => $request->status]);
 		}
 		elseif($request->method == 'paypal')
 		{
-			return view('frontend.product.userspaymenttt',['total'=> $request->total,'email' => $request->email]);
+			return view('frontend.product.userspaymenttt',['total'=> $request->total,'email' => $request->email,'status' => $request->status]);
 		}
 		else
 		{
-			return view('frontend.product.userspaymentttt',['total'=> $request->total,'email' => $request->email]);
+			return view('frontend.product.userspaymentttt',['total'=> $request->total,'email' => $request->email,'status' => $request->status]);
 		}
 		
 	}
@@ -128,6 +128,11 @@ class FrontendController extends Controller
             'email' => $request->email,
             'u_id' => $request->customer,
             'product_id' => $request->product_id,
+			
+			'product_name' => $request->product_name,
+			'product_price' => $request->product_price,
+			'status' => $request->status,
+			
             'product_unique_id' => $request->product_unique_id,
             'domain' => $request->domain,
             'site' => $request->site,
@@ -195,10 +200,16 @@ class FrontendController extends Controller
 	}
 	public function payWithpaypal(Request $request)
 	{
+
 		product_order_model::create([
             'email' => $request->email,
 			'u_id' => $request->u_id,
 			'product_id' => $request->product_id,
+			
+			'product_name' => $request->product_name,
+			'product_price' => $request->product_price,
+			'status' => $request->status,
+			
             'product_unique_id' => $request->product_unique_id,
             'domain' => $request->domain,
             'site' => $request->site,
@@ -332,6 +343,11 @@ class FrontendController extends Controller
             'email' => $request->email,
 			'u_id' => $request->u_id,
 			'product_id' => $request->product_id,
+			
+			'product_name' => $request->product_name,
+			'product_price' => $request->product_price,
+			'status' => $request->status,
+			
             'product_unique_id' => $request->product_unique_id,
             'domain' => $request->domain,
             'site' => $request->site,

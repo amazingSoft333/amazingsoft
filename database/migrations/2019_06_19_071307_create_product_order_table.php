@@ -17,6 +17,11 @@ class CreateProductOrderTable extends Migration
             $table->increments('id');
 			
             $table->string('product_id')->nullable();
+			
+            $table->string('product_name')->nullable();
+            $table->string('product_price')->nullable();
+            $table->string('status')->nullable();
+			
             $table->string('product_unique_id')->nullable();
             $table->string('u_id')->nullable();
             $table->string('email')->nullable();

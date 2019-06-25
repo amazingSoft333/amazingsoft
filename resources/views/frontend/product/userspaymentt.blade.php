@@ -29,8 +29,13 @@
 					{{ csrf_field() }}
 							<input type="hidden" name="email" value="{{$email}}">
 							<input type="hidden" name="product_id" value="{{request()->product_id}}">
+							
+							<input type="hidden" name="product_name" value="{{request()->product_name}}">
+							<input type="hidden" name="product_price" value="{{request()->product_price}}">
+							<input type="hidden" name="status" value="{{$status}}">
+							
 							<input type="hidden" name="product_unique_id" value="{{request()->product_unique_id}}">
-							<input type="hidden" name="domain" value="{{request()->site}}">
+							<input type="hidden" name="domain" value="{{request()->domain}}">
 							<input type="hidden" name="site" value="{{request()->site}}">
 							<input type="hidden" name="doamin_lid" value="{{request()->doamin_lid}}">
 							<input type="hidden" name="domain_pass" value="{{request()->domain_pass}}">

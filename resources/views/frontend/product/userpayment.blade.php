@@ -43,8 +43,10 @@ padding:10px;
 			  <td>1</td>
 			  <td>${{$p = \App\Product::where(['id' => request()->product_id])->first()->price}}
 				  <input type="hidden" name="product_price" value="{{$p}}">
-				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->name}}">
+				  <input type="hidden" name="product_name" value="{{\App\Product::where(['id' => request()->product_id])->first()->name}}">
+				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
 				  <input type="hidden" name="product_unique_id" value="AMP{{ rand(000,9999) }}{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
+				  <input type="hidden" name="status" value="0">
 			  </td>
 			</tr>
 			<tr>
@@ -52,7 +54,7 @@ padding:10px;
 			  @if(request()->demo1 == 'One')
 			  <td>
 							<?php $domain_cost = 0; ?>
-							<input type="hidden" name="domain" value="Already have a doamin">
+							<input type="hidden" name="domain" value="One">
 							<input type="hidden" name="site" value="{{request()->site}}">
 							<input type="hidden" name="doamin_lid" value="{{request()->doamin_lid}}">
 							<input type="hidden" name="domain_pass" value="{{request()->domain_pass}}">
@@ -73,7 +75,7 @@ padding:10px;
 			  @if(request()->demo2 == 'Three')
 			  <td>Already Have a Hosting
 				  <?php $hc = 0; ?>
-				  <input type="hidden" name="demo2" value="Already Have a Hosting">
+				  <input type="hidden" name="demo2" value="Three">
 				  <input type="hidden" name="cpanel_link" value="{{request()->cpanel_link}}">
 				  <input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
 				  <input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}"></td>
@@ -91,7 +93,7 @@ padding:10px;
 			  @if(request()->demo4 == 'Six')
 			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 0])->first()->price; @endphp
 			  @php $xc = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 0])->first()->content; @endphp
-			  <td><input type="hidden" name="content_size" value="Content uplode"/>Content upload &nbsp; ({{$xc}}) &nbsp;pages</td>
+			  <td><input type="hidden" name="content_size" value="Content upload ({{$xc}}) pages"/>Content upload &nbsp; ({{$xc}}) &nbsp;pages</td>
 			  <td>$<input type="hidden" name="content" value="{{$x}}">{{$x}}</td>
 			  @elseif(request()->demo4 == 'Seven')
 			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->price; @endphp
