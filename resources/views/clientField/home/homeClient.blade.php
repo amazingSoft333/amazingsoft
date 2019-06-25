@@ -18,7 +18,7 @@
 			<td>{{$x->product_unique_id}}</td>
 			<td>{{$x->email}}</td>
 		</tr>
-@endforeach
+	@endforeach
 	</tbody>
 </table>
 @endsection
