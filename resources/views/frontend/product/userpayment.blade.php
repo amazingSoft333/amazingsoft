@@ -42,7 +42,8 @@ padding:10px;
 			  <th scope="row">{{\App\Product::where(['id' => request()->product_id])->first()->name}}</th>
 			  <td>1</td>
 			  <td>${{$p = \App\Product::where(['id' => request()->product_id])->first()->price}}
-				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
+				  <input type="hidden" name="product_price" value="{{$p}}">
+				  <input type="hidden" name="product_id" value="{{\App\Product::where(['id' => request()->product_id])->first()->name}}">
 				  <input type="hidden" name="product_unique_id" value="AMP{{ rand(000,9999) }}{{\App\Product::where(['id' => request()->product_id])->first()->id}}">
 			  </td>
 			</tr>
@@ -139,6 +140,8 @@ padding:10px;
 	@else
 	 <input type="hidden" id="fname" name="name" value="{{request()->name}}">
 	 <input type="hidden" id="email" name="email" value="{{request()->email}}">
+	 <input type="hidden" id="mbNumber" value="{{request()->number}}" name="number">
+	 <input type="hidden" id="mbNumber" value="{{request()->address}}" name="address">
 	 <input type="hidden" id="mbNumber" value="{{request()->password}}" name="password">
 	 <input type="hidden" id="address" value="{{request()->password_confirmation}}" name="password_confirmation">
 	@endif

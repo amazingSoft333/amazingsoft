@@ -4,8 +4,9 @@
 <table class="table table-bordered table-hover table-responsive">
 	<thead>
 		<tr class="bg-primary">
-			<th>ID</th>
-			<th>Product_unique Id</th>
+			<th>Sl. No.</th>
+			<th>Order Id</th>
+			<th>Product ID</th>
 			<th>Email</th>
 			@if(!empty($x->site))
 			<th>Domain</th>
@@ -18,13 +19,12 @@
 			<th>Hosting Information</th>
 			@else
 			<th>Hosting Information</th>
-			<th>hosting_cost</th>
 			@endif
 			
-			<th>content_size</th>
+			<th>Content size</th>
 			<th>content</th>
 			
-			<th>total</th>
+			<th>Total</th>
 			<th>method</th>
 		</tr>
 	</thead>
@@ -33,25 +33,25 @@
 		<tr>
 			<td>{{$x->id}}</td>
 			<td>{{$x->product_unique_id}}</td>
+			<td>{{$x->product_id}}</td>
 			<td>{{$x->email}}</td>
 			@if(!empty($x->site))
 			<th>Allready have a Doamin</th>
-			<td>Site:{{$x->site}}<br>
-			Domain Id:{{$x->doamin_lid}}</br>
-			Domain Pasword: {{$x->domain_pass}}</td>
+			<td><b>Site:</b>{{$x->site}}<br>
+			<b>Domain Id:</b>{{$x->doamin_lid}}</br>
+			<b>Domain Pasword:</b> {{$x->domain_pass}}</td>
 			@else
-			<td>{{$x->search}}</td>
+			<td><b>Required Domain:</b>{{$x->search}}</td>
 			<td>{{$x->domain_cost}}</td>
 			@endif
 			
 			@if(!empty($x->demo2))
-			<td>URL: {{$x->cpanel_link}}
-				Cpanel Id:{{$x->cpanel_id}}
-				Cpanel Pasword:{{$x->cpanel_pass}}
+			<td><b>URL:</b> {{$x->cpanel_link}}
+				<b>Cpanel Id:</b>{{$x->cpanel_id}}
+				<b>Cpanel Pasword:</b>{{$x->cpanel_pass}}
 			</td>
 			@else
-			<th>All ready have a hosting</th>
-			<td>{{$x->hosting_cost}}</td>
+			<td><b>Hosting cost:&nbsp;$</b>{{$x->hosting_cost}}</td>
 			@endif
 			
 			<td>{{$x->content_size}}</td>

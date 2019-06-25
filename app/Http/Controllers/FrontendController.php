@@ -79,6 +79,8 @@ class FrontendController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+			'address'=>$request->address,
+            'number' => $request->number,
 			]);
 		}
 		else{
