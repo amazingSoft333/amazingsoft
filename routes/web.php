@@ -37,8 +37,8 @@ Route::post('payment_storeeebd','FrontendController@paymentbd_store')->name('pay
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index')->name('clientOrder');
 Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
+Route::get('/client/paymentHistory','ClientregController@clientPayment')->name('clientPayment');
 Route::patch('/client/update/{id}','ClientregController@clientUpdate')->name('clientUpdate');
-
 Route::get('setting','ClientregController@setting_index')->name('setting');
 Route::post('changePassword','ClientregController@current_index')->name('current');
 /*End Client Registration Section*/

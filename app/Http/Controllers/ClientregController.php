@@ -31,6 +31,10 @@ class ClientregController extends Controller
 		return view('clientField.home.setting');
 	}
 	
+	public function clientPayment()
+	{
+		return view('clientField.clientDetail.clientPayemntHistory');
+	}
 	public function current_index(Request $request)
 	{
 		//dd($request);

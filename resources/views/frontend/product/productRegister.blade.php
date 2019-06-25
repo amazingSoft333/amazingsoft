@@ -138,7 +138,7 @@ label {
 		<div class="container">
 			<div class="section-heading center-holder">
 			<form class="contact-form">
-<h4><strong>{{\App\Product::where(['id' => request()->id])->first()->name}} (Product Price-${{\App\Product::where(['id' => request()->id])->first()->price}})</strong></h4>
+<h4><strong>Web Demo (Product Price-${{\App\Product::where(['id' => request()->id])->first()->price}})</strong></h4>
 @if(Auth::guard('web')->check())
 	<input type="hidden" name="u_id" value="{{Auth::user()->id}}">
 @else

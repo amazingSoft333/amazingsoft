@@ -46,9 +46,9 @@
 								</li>
 								<li><a href="#">Products</a>
 								</li>
-								<li><a href="#">Payment History</a>
+								<li><a href="{{route('clientPayment')}}">Payment History</a>
 								</li>
-								<li><a href="#">New Order</a>
+								<li><a href="{{route('product')}}">New Order</a>
 								</li>
 								<li><a href="#">Notification</a>
 								</li>
