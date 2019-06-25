@@ -42,7 +42,7 @@
 						</div>
 						<div class="services-single-menu mt-30">
 							<ul>
-								<li class="services-active"><a href="#">Order List</a>
+								<li class="services-active"><a href="{{route('clientOrder')}}">Order List</a>
 								</li>
 								<li><a href="#">Products</a>
 								</li>
