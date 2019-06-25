@@ -163,6 +163,16 @@ label {
         <input type="email" id="email" name="email" placeholder="Email address" required autofocus>
       </div>
     </div>
+	
+	
+	 <div class="row">
+      <div class="col-25">
+        <label for="address">Phone Number</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="nmb" name="number" placeholder="Number" required autofocus>
+      </div>
+    </div>
 </div>
 <br/>
  <div class="col-md-6">
@@ -171,7 +181,7 @@ label {
         <label for="address">Password</label>
       </div>
       <div class="col-75">
-        <input type="password" id="mbNumber" name="password" placeholder="Password" required>
+        <input type="password" id="pass" name="password" placeholder="Password" required>
       </div>
     </div>
 
@@ -180,7 +190,16 @@ label {
         <label for="address">Confirm Password</label>
       </div>
       <div class="col-75">
-        <input type="password" id="address" name="password_confirmation" placeholder="Password" required>
+        <input type="password" id="confirm_pass" name="password_confirmation" placeholder="Password" required>
+      </div>
+    </div>
+	
+	<div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-75">
+       <input type="text" id="fname" name="address" placeholder="Address" required autofocus>
       </div>
     </div>
     </div>
