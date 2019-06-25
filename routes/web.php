@@ -317,6 +317,11 @@ Route::get('/priceManage/contentDelete/{id}','PricemanagerController@deleteConte
 
 /*End Price Manager--Content */
 
+/****Order Manager*****/
+Route::get('/orderManage/orderListCreate','OrdermanagerController@manageOrderList')->name('orderListManage');
+/****Order Manager End*****/
+
+
 
 /*****************=========Admin==================
 ===========================Panel====================

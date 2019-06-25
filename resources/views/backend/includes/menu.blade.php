@@ -105,7 +105,7 @@
 		
 		<li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Price manager</span>
+            <i class="fa fa-edit"></i> <span>Price Manager</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -113,6 +113,20 @@
           <ul class="treeview-menu">
             <li><a href="{{route('manageHosting')}}"><i class="fa fa-circle-o"></i>Hosting Price</a></li>
             <li><a href="{{route('manageContent')}}"><i class="fa fa-circle-o"></i>Content Price</a></li>
+          </ul>
+        </li>
+		
+		
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Order Manager</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('orderListManage')}}"><i class="fa fa-circle-o"></i>Order List</a></li>
+           
           </ul>
         </li>
 		
@@ -256,7 +270,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i>Client list</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Order List</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i>Payment List</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i>Plan Wise Payment History</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i>Transaction History</a></li>
