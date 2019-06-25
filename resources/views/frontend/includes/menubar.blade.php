@@ -75,9 +75,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-								
+								<li><a class="dropdown-item" href="{{url('/client/details')}}">Profile Edit</a></li>
+									<li><a class="dropdown-item" href="{{route('setting')}}">Setting</a></li>
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                                          Logout

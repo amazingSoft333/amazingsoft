@@ -203,6 +203,16 @@ body {
                 <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>
               </div>
+			  
+			   <div class="form-label-group">
+                <input type="text" id="inputNumber" class="form-control" name="number" placeholder="Phone Number" required autofocus>
+                <label for="inputNumber">Phone Number</label>
+              </div>
+			  
+			   <div class="form-label-group">
+                <input type="text" id="inputAddress" class="form-control" name="address" placeholder="Address" required autofocus>
+                <label for="inputAddress">Address</label>
+              </div>
 
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
