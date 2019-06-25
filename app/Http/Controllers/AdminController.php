@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\product_order_model;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,11 @@ class AdminController extends Controller
      
 	  return view('backend.home.homeContent');
     }
+	public function approved_index(Request $request,$id)
+	{
+		product_order_model::find($id)->update($request->all());
+		return redirect()->back();
+	}
     
 	
 

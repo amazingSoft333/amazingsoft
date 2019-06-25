@@ -42,6 +42,7 @@ class CreateProductOrderTable extends Migration
             $table->string('method')->nullable();
             $table->string('mobile')->nullable();
             $table->string('transaction')->nullable();
+            $table->longText('message')->nullable();
 			
             $table->timestamps();
         });

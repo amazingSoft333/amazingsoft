@@ -44,13 +44,13 @@
 							<ul>
 								<li class="services-active"><a href="{{route('clientOrder')}}">Order List</a>
 								</li>
-								<li><a href="#">Products</a>
+								<li><a href="{{route('product')}}">Products</a>
 								</li>
 								<li><a href="#">Payment History</a>
 								</li>
 								<li><a href="#">New Order</a>
 								</li>
-								<li><a href="#">Notification</a>
+								<li><a href="{{route('notification')}}">Notification <span class="label" style="border-radius: 50%; background-color:red; color:white">&nbsp; {{\App\product_order_model::where(['email' => Auth::user()->email])->count()}} &nbsp;</span></a>
 								</li>
 							</ul>
 						</div>

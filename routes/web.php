@@ -36,6 +36,12 @@ Route::post('payment_storeeebd','FrontendController@paymentbd_store')->name('pay
 
 /*Client Registration Section*/
 Route::get('/home','ClientregController@index')->name('clientOrder');
+Route::get('product','ClientregController@product_index')->name('product');
+Route::get('notification','ClientregController@notification_index')->name('notification');
+
+
+
+
 Route::get('/client/details','ClientregController@clientDetails')->name('clientDetails');
 Route::patch('/client/update/{id}','ClientregController@clientUpdate')->name('clientUpdate');
 
@@ -144,6 +150,25 @@ Route::get('/homeAbout/homeAboutManage','AdminhomeController@manageHomeAbout')->
 Route::post('/homeAbout/homeAboutUpdate','AdminhomeController@updateHomeAbout')->name('homeAboutUpdate');
 Route::get('/homeAbout/homeAboutDelete/{id}','AdminhomeController@deleteHomeAbout')->name('homeAboutDelete');
 //Counter
+
+
+Route::patch('approved/{id}','AdminController@approved_index')->name('approved');
+Route::patch('message/{id}','AdminController@approved_index')->name('message');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::post('/homeCounter/counterSave','AdminhomeController@saveCounter')->name('counterSave');
 Route::get('/homeCounter/counterManage','AdminhomeController@manageCounter')->name('counterManage');

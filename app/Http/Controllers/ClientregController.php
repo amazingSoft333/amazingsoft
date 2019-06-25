@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\product_order_model;
 use Auth;
 use Hash;
 
@@ -19,6 +20,14 @@ class ClientregController extends Controller
     {
         return view('clientField.home.homeClient');
     }
+	public function product_index()
+	{
+		return view('clientField.home.product');
+	}
+	public function notification_index()
+	{
+		return view('clientField.home.notification');
+	}
 
     public function clientDetails()
     {
