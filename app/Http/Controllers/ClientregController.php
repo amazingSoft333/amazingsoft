@@ -49,13 +49,10 @@ class ClientregController extends Controller
 
     }
 
-    public function clientUpdate(Request $request)
+    public function clientUpdate(Request $request,$id)
     {
       
-        //$cate=Categoryteam::find($request->id);
-        $client = User::find($request->id);;
-        $client->name =$request->name;
-        $client->email=$request->email;
-        $client->save();
+		User::find($id)->update($request->all());
+		return redirect()->back()->with("message","Information changed successfully !");
     }
 }
