@@ -51,7 +51,7 @@
 							@endforeach
 						</ul>
 					</li>
-					<li><a href="{{route('product')}}">Products</a> 
+					<li><a href="{{route('producthome')}}">Products</a> 
 
 					</li>
 					

@@ -15,7 +15,7 @@ Route::get('/','FrontendController@index')->name('home');
 Route::get('/about','FrontendController@aboutContent')->name('about');
 Route::get('/packageContent/{id}','FrontendController@packageContent')->name('package');
 Route::get('/blog','FrontendController@blogContent')->name('blog');
-Route::get('/product','FrontendController@productContent')->name('product');
+Route::get('/producthome','FrontendController@productContent')->name('producthome');
 Route::get('/product-detail','FrontendController@productDetail')->name('productDetail');
 Route::get('/product-register','FrontendController@productRegister')->name('productRegister');
 Route::get('/blogDetail/{id}','FrontendController@blogDetailContent')->name('blogDetail');

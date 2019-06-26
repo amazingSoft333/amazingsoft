@@ -4,43 +4,72 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr class="bg-primary">
-			<th>Product ID</th>
-			<th>Order Id</th>
-			<th>Product Name</th>
-			<th>Amount Total</th>
+			<th width="10%">Product ID</th>
+			<th width="10%">Order Id</th>
+			<th width="10%">Product Name</th>
+			<th width="70%">Amount Total</th>
 		</tr>
 	</thead>
 	<tbody>
-				@foreach($abb as $ab)
+@foreach($abb as $ab)
 		<tr>
 			<td>{{$ab->product_id}}</td>
 			<td>{{$ab->product_unique_id}}</td>
 			<td>{{$ab->product_name}}</td>
-			<td>{{$ab->total}} <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal{{$ab->id}}">
-  Payment Detail
-</button></td>	
-	
-		</tr>
-		<!-- Modal -->
-<div class="modal fade" id="exampleModal{{$ab->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Payment Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       kuhykyuhkyu fgmkryuryukr fgkryukryuk
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+			<td>{{$ab->total}} <a data-toggle="collapse" href="#collapseExample{{$ab->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+							  Payment Detail
+							   </a>
+							   	<div class="collapse" id="collapseExample{{$ab->id}}">
+								  <div class="card card-body">
+											<table class="table table-hover table-border table-responsive">
+											  <thead>
+												<tr>
+												  <th scope="col">Product Name</th>
+												  <th scope="col">Quantity</th>
+												  <th scope="col">Price</th>
+												</tr>
+											  </thead>
+											  <tbody>
+												<tr>
+												  <th scope="row">{{$ab->product_name}}</th>
+												  <td>1</td>
+												  <td>${{$ab->product_price}}</td>
+												</tr>										  <tbody>
+												<tr>
+												  <th scope="row">Domain</th>
+												  @if($ab->domain == 'One')
+												  <td>Allready have a Doamin</td>
+												  <td></td>
+												  @elseif(empty($ab->domain))
+												  <td>{{$ab->search}}</td>
+												  <td>${{$ab->domain_cost}}</td>
+												  @endif
+
+												</tr>
+												<tr>
+												  <th scope="row">Hosting</th>
+												  @if(empty($ab->demo2))
+												  <td>1</td>
+												  <td>{{$ab->hosting_cost}}</td>
+												  @elseif($ab->demo2 == "Three")
+												  <td>1</td>
+												  <td>1</td>
+												  @endif
+												</tr>
+												<tr>
+												  <th scope="row">Content</th>
+												  <td>{{$ab->content_size}}</td>
+												  <td>${{$ab->content}}</td>
+												</tr>
+											  </tbody>
+											</table>
+								   </div>
+								</div>
+			</td>	
+										
+											</tr>
+
+									</div>
 		       @endforeach
 
 	</tbody>

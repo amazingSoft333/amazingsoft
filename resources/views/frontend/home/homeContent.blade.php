@@ -268,7 +268,7 @@
 						<h3>Bye Our Newest Products</h3> 
 						<div class="section-heading-line-left-product"></div>
 					</div>
-					<div class="mt-15 left-holder-md"> <a href="{{route('product')}}" class="primary-button-product button-sm mt-15-xs">Show All Products</a> 
+					<div class="mt-15 left-holder-md"> <a href="{{route('producthome')}}" class="primary-button-product button-sm mt-15-xs">Show All Products</a> 
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-9 col-12">
