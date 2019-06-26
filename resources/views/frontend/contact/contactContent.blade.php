@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('maincontent')
-        @php
+<!--------------
+                @php
 				$publishedContactBanner=\App\Contactbanner::first();
 				@endphp
 <div class="page-title-section" style="background-image:@if(!$publishedContactBanner==null) url({{asset('Image/ContactBannerImage/'.$publishedContactBanner->banner)}})@endif;">
@@ -14,6 +15,7 @@
 			</ul>
 		</div>
 	</div>
+	------------->
 
     <div class="section-block">
 		<div class="container">

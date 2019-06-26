@@ -102,7 +102,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="box-search">
-<h2 style="font-size:50px;text-align:center;">Search Your <span style="color:#0C51A0;">Domain</span> Name</h2>
+<h2 style="font-size:45px;text-align:center;">Search Your <span style="color:#0C51A0;">Domain</span> Name</h2>
 <form class="example wow fadeInLeft" data-wow-duration="2s" action="/action_page.php">
   <input type="text" placeholder="Search.." name="search">
   <button type="submit"><i class="fa fa-search"></i></button>
@@ -315,7 +315,7 @@
 			</div>
 		</div>
 	</div>
-	      @php
+	            @php
 				$publishedPortfolios=\App\Portfolio::get();
 				@endphp	
 				
@@ -345,7 +345,7 @@
 					@endforeach
 				</div>
 			</div>
-			<div class="mt-10 right-holder-md port"> <a href="projects-grid.html" class="primary-button button-sm mt-15-xs">Show All Portfolios</a> 
+			<div class="mt-15 right-holder-md port"> <a href="projects-grid.html" class="primary-button button-sm mt-15-xs">Show All Portfolios</a> 
 			</div>
 		</div>
 	</div>

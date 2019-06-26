@@ -1,9 +1,12 @@
 @extends('frontend.master')
 @section('maincontent')
-        @php
+<!-----
+				@php
 				$publishedAboutBanner=\App\Aboutbanner::first();
 				@endphp
-<div class="page-title-section" style="background-image:@if(!$publishedAboutBanner==null) url({{asset('Image/BannerImage/'.$publishedAboutBanner->banner)}})@endif;">
+				--------->
+<!-------
+ <div class="page-title-section" style="background-image:@if(!$publishedAboutBanner==null) url({{asset('Image/BannerImage/'.$publishedAboutBanner->banner)}})@endif;">
 		<div class="container">
 			<h1>About Us</h1> 
 			<ul>
@@ -13,8 +16,9 @@
 				</li>
 			</ul>
 		</div>
-	</div>
-      	@php
+	</div> 
+	-------->
+      	        @php
 				$publishedAboutDes=\App\Aboutdescription::first();
 				@endphp	
     <div class="section-block">

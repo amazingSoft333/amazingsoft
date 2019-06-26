@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('maincontent')
-        @php
+<!---------------
+                @php
 				$publishedBlogBanner=\App\Blogbanner::first();
 				@endphp
 <div class="page-title-section" style="background-image:@if(!$publishedBlogBanner==null)url({{asset('Image/BlogBanner/'.$publishedBlogBanner->banner)}})@endif;">
@@ -14,6 +15,7 @@
 			</ul>
 		</div>
 	</div>
+	------------>
 
     <div class="section-block">
 		<div class="container">
