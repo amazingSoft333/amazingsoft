@@ -15,11 +15,17 @@
 											{!!$x->message!!}
 										</div>
 									</div>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
 			</div>
 			@else
 			<div class="alert alert-danger" role="alert">
 			  Your Order is submit....Wait for admin approval<br>
 			  <b>Order Id:</b>&nbsp; &nbsp; &nbsp; {{$x->product_unique_id}}
+			    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			@endif
 		</diV>

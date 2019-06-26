@@ -31,7 +31,7 @@
 							<input type="hidden" name="cpanel_id" value="{{request()->cpanel_id}}">
 							<input type="hidden" name="cpanel_pass" value="{{request()->cpanel_pass}}">
 							<input type="hidden" name="hosting_cost" value="{{request()->hosting_cost}}">
-							<input type="hidden" name="content_size" value="Content uplode"/>
+							<input type="hidden" name="content_size" value="{{request()->content_size}}"/>
 							<input type="hidden" name="content" value="{{request()->content}}">    
 							<input type="hidden" name="method" value="{{request()->method}}">    
 		  <input class="from-group" name="amount" value="{{$total}}" type="hidden"></p>      

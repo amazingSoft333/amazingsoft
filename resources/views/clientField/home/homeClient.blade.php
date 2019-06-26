@@ -3,8 +3,8 @@
 <?php $xx = \App\product_order_model::where(['email' => Auth::user()->email])->get();?>
 <table class="table table-bordered table-hover table-responsive">
 	<thead>
-		<tr class="bg-primary">
-			<th>Product ID</th>
+		<tr class="bg-default table-active">
+			<th>ID</th>
 			<th>Product Name</th>
 			<th>Order Id</th>
 			@if(empty($x->domain))
@@ -27,7 +27,7 @@
 	<tbody>
 	@foreach($xx as $x)
 		<tr>
-			<td>{{$x->product_id}}</td>
+			<td>{{$x->id}}</td>
 			<td>{{$x->product_name}}</td>
 			<td>{{$x->product_unique_id}}</td>
 			@if($x->domain == 'One')
@@ -52,8 +52,11 @@
 			@endif
 			
 			
-			
+			@if(empty($x->content))
+			<td></td>
+			@else
 			<td>{{$x->content_size}}(${{$x->content}})</td>
+			@endif
 			
 			@if($x->status == '0')
 			<td><span class="label" style="background-color:yellow;">Pending</span></td>

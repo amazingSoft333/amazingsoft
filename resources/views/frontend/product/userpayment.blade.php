@@ -98,11 +98,8 @@ padding:10px;
 			  @elseif(request()->demo4 == 'Seven')
 			  @php $x = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->price; @endphp
 			  @php $xcc = \App\Contentmanage::where(['price' => request()->content])->where(['publicationType' => 1])->first()->content; @endphp
-			  <td><input type="hidden" name="content_size" value="Need Content and Upload"/>Need Content and Upload &nbsp; ({{$xcc}}) &nbsp; pages</td>
-			  <td>
-				
-				$<input type="hidden" name="content" value="{{$x}}">{{$x}}
-			  </td>
+			  <td><input type="hidden" name="content_size" value="Need Content and Upload({{$xcc}})pages"/>Need Content and Upload &nbsp; ({{$xcc}}) &nbsp; pages</td>
+			  <td>$<input type="hidden" name="content" value="{{$x}}">{{$x}}</td>
 			  @else
 				<?php $x = 0; ?>
 			  <td>No Need</td>
@@ -180,12 +177,12 @@ padding:10px;
 		<div class="col-lg-12">
 		&nbsp;
 		<div class="form-check form-check-inline bkash">
-			<input class="form-check-input" type="radio" name="content" id="inlineRadio1" value="">
+			<input class="form-check-input" type="radio" name="bkash" id="inlineRadio1" value="">
 			<label class="form-check-label" for="inlineRadio1"><img src="{{asset('frontend/img/payment/bkash.png')}}" height="140px" width="75px"></label>
 		</div>
 		
 		<div class="form-check form-check-inline rocket">
-		  <input class="form-check-input" type="radio" name="content" id="inlineRadio2" value="">
+		  <input class="form-check-input" type="radio" name="rocket" id="inlineRadio2" value="">
 		  <label class="form-check-label" for="inlineRadio2"><img src="{{asset('frontend/img/payment/rocket01.png')}}" style="width:35px;height:20px;"></label>
 		</div>
 
@@ -201,7 +198,7 @@ padding:10px;
 	
 	</div>
 	<div class="col-lg-12">
-		<button class="btn btn-md btn-primary pull-right">Payment</button>
+		<button type="submit" class="btn btn-md btn-primary pull-right">Payment</button>
 	</div>
 	</div>
 	

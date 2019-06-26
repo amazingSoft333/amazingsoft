@@ -3,8 +3,8 @@
 <?php $abb= \App\product_order_model::where(['email' => Auth::user()->email])->get();?>
 <table class="table table-bordered table-hover">
 	<thead>
-		<tr class="bg-primary">
-			<th width="10%">Product ID</th>
+		<tr class="bg-default table-active">
+			<th width="10%">ID</th>
 			<th width="10%">Order Id</th>
 			<th width="10%">Product Name</th>
 			<th width="70%">Amount Total</th>
@@ -13,10 +13,10 @@
 	<tbody>
 @foreach($abb as $ab)
 		<tr>
-			<td>{{$ab->product_id}}</td>
+			<td>{{$ab->id}}</td>
 			<td>{{$ab->product_unique_id}}</td>
 			<td>{{$ab->product_name}}</td>
-			<td>{{$ab->total}} <a data-toggle="collapse" href="#collapseExample{{$ab->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+			<td>$ {{$ab->total}} <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample{{$ab->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
 							  Payment Detail
 							   </a>
 							   	<div class="collapse" id="collapseExample{{$ab->id}}">
@@ -49,17 +49,28 @@
 												<tr>
 												  <th scope="row">Hosting</th>
 												  @if(empty($ab->demo2))
-												  <td>1</td>
+												  <td>{{\App\Hostingprice::where(['price'  => $ab->hosting_cost])->first()->hosting}}GB</td>
 												  <td>{{$ab->hosting_cost}}</td>
 												  @elseif($ab->demo2 == "Three")
-												  <td>1</td>
-												  <td>1</td>
+												  <td>Allready Have a Hosting</td>
+												  <td></td>
+												  @endif
+												</tr>
+												
+												<tr>
+												  <th scope="row">Content</th>
+												  @if(empty($ab->content))
+												  <td>No Need Any Content Uplode</td>
+												  <td></td>
+												  @else
+												  <td>{{$ab->content_size}}</td>
+												  <td>${{$ab->content}}</td>
 												  @endif
 												</tr>
 												<tr>
-												  <th scope="row">Content</th>
-												  <td>{{$ab->content_size}}</td>
-												  <td>${{$ab->content}}</td>
+												  <th scope="row"></th>
+												  <td>Total</td>
+												  <td>${{$ab->total}}</td>
 												</tr>
 											  </tbody>
 											</table>
