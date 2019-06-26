@@ -315,7 +315,7 @@
 			</div>
 		</div>
 	</div>
-	      @php
+	            @php
 				$publishedPortfolios=\App\Portfolio::get();
 				@endphp	
 				
@@ -345,7 +345,7 @@
 					@endforeach
 				</div>
 			</div>
-			<div class="mt-10 right-holder-md port"> <a href="projects-grid.html" class="primary-button button-sm mt-15-xs">Show All Portfolios</a> 
+			<div class="mt-15 right-holder-md port"> <a href="projects-grid.html" class="primary-button button-sm mt-15-xs">Show All Portfolios</a> 
 			</div>
 		</div>
 	</div>

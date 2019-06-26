@@ -14,6 +14,7 @@
 Route::get('/','FrontendController@index')->name('home');
 Route::get('/about','FrontendController@aboutContent')->name('about');
 Route::get('/packageContent/{id}','FrontendController@packageContent')->name('package');
+Route::get('/serviceContent','FrontendController@serviceContent')->name('serviceContent');
 Route::get('/blog','FrontendController@blogContent')->name('blog');
 Route::get('/producthome','FrontendController@productContent')->name('producthome');
 Route::get('/product-detail','FrontendController@productDetail')->name('productDetail');

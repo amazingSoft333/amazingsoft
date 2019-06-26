@@ -45,6 +45,10 @@ class FrontendController extends Controller
         $publishedPackages=Package::where('categoryId',$id)->get();                     
         return view('frontend.packages.packageContent',['publishedPackages'=>$publishedPackages]);
     }
+	public function serviceContent()
+	{
+		return view('frontend.service.serviceContent');
+	}
 
 
     public function productContent()

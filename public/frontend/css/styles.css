@@ -9,6 +9,7 @@
 /*-----------------------------------------1. Sections-------------------------------------------*/
 
 .section-block {
+
 	padding: 33px 0px 33px 0px;
 	background-color: #fff;
 }
@@ -21,11 +22,11 @@
 	background-color: #fff;
 }
 .section-block-ceo {
-	padding: 30px 0px 90px 0px;
+	padding: 1px 0px 1px 0px;
 	background-color: #fff;
 }
 .section-block-grey {
-	padding: 45px 0px 90px 0px;
+	padding: 45px 0px 20px 0px;
 	background-color: #f9f9f9;
 }
 .section-block-dark {
@@ -1978,7 +1979,7 @@
 	text-align: center;
 	border: 1px solid #1E1E1E;
 	border-radius: 5px;
-	background: #18207a;
+	background: #3A57C3;
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
 	-moz-box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
 	box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);
@@ -1986,6 +1987,7 @@
 	padding: 30px 40px 35px 40px;
 	-webkit-transition-duration: .3s;
 	transition-duration: .3s;
+	color:#fff;
 }
 .feature-box-long:hover {
 	-webkit-box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.29);

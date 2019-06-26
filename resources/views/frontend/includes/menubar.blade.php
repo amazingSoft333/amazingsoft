@@ -14,31 +14,16 @@
 				<ul class="nav-menu align-to-right">
 					<li class="active"><a href="{{url('/')}}">Home</a></li>
 					 <li><a href="{{route('about')}}">About Us</a></li>
+			                    @php
+								$publishedServiceGets=\App\Servicecat::get();
+								@endphp
 					<li><a href="#">Services</a> 
-						<div class="megamenu-panel">
-							<div class="megamenu-lists">
-								<ul class="megamenu-list list-col-4">
-									<li class="megamenu-list-title"><a href="#">Multi Purpose 01</a>
-									</li>
-									<li><a href="index.html">Home Page 01</a>
-									</li>
-									<li><a href="home-2.html">Home Page 02</a>
-									</li>
-									<li><a href="home-3.html">Home Page 03</a>
-									</li>
-								</ul>
-								<ul class="megamenu-list list-col-4">
-									<li class="megamenu-list-title"><a href="#">Multi Purpose 02</a>
-									</li>
-									<li><a href="home-4.html">Home Page 04</a>
-									</li>
-									<li><a href="home-5.html">Home Page 05</a>
-									</li>
-									<li><a href="home-6.html">Home Page 06</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<ul class="nav-dropdown">
+							@foreach($publishedServiceGets as $publishedServiceGet)
+							<li><a href="{{url('/serviceContent')}}">{{$publishedServiceGet->category}}</a>
+							</li>
+							@endforeach
+						</ul>
 					</li>
 					            @php
 								$publishedCategories=\App\Packagecat::get();
