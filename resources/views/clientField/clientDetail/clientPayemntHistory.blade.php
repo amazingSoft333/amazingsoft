@@ -4,9 +4,9 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr class="bg-default table-active">
-			<th width="10%">ID</th>
+			<th width="5%">ID</th>
 			<th width="10%">Order Id</th>
-			<th width="10%">Product Name</th>
+			<th width="15%">Product Name</th>
 			<th width="70%">Amount Total</th>
 		</tr>
 	</thead>
