@@ -44,7 +44,7 @@
 							<ul>
 								<li class="services-active"><a href="{{route('clientOrder')}}">Order List</a>
 								</li>
-								<li><a href="{{route('user_product')}}">Products</a>
+								<li><a href="{{route('product')}}">Products</a>
 								</li>
 								<li><a href="{{route('clientPayment')}}">Payment History</a>
 								</li>

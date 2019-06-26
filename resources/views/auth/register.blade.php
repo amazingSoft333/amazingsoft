@@ -192,6 +192,15 @@ body {
           <div class="card-body">
             <h5 class="card-title text-center">User Register</h5>
             <p class="card-title-sign text-center">Already a member?<a href="{{url('/login')}}"> Go and Log in</a></p>
+			@if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>						
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			 @endif
             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
             <div class="form-label-group">
