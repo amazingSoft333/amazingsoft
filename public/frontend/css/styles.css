@@ -441,7 +441,7 @@
 	display: block;
 	position: relative;
 	z-index: 999;
-	background: #130d75;
+	background: #3B5998;
 	height: 45px;
 }
 .top-bar-welcome {
@@ -480,7 +480,7 @@
 }
 .top-bar-info li i {
 	font-size: 13px;
-	color: #0878BE;
+	color: #fff;
 	margin-right: 8px;
 }
 .social-icons {
@@ -2914,12 +2914,12 @@
 /*-----------------------------------------17. Footer-------------------------------------------*/
 
 footer {
-	background: #111;
-	padding: 60px 0px 20px 0px;
+	background: #3B5998;
+	padding: 30px 0px 5px 0px;
 }
 footer p {
 	font-size: 14px;
-	color: #999;
+	color: #fff;
 	line-height: 1.7;
 }
 footer h3 {
@@ -2974,7 +2974,7 @@ footer h3::after {
 .footer-list li a:before {
 	content: '\f105';
 	font-family: 'FontAwesome';
-	color: #aaa;
+	color: #fff;
 	padding-right: 8px;
 	-webkit-transition-duration: .3s;
 	transition-duration: .3s;
@@ -2982,10 +2982,10 @@ footer h3::after {
 .footer-list li a {
 	font-size: 15px;
 	font-weight: 400;
-	color: #aaa;
+	color: #fff;
 }
 .footer-list li a:hover {
-	color: #fff;
+	color: #aaa;
 }
 .footer-list li a:hover:before {
 	color: #fff;

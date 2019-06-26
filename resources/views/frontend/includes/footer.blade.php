@@ -21,7 +21,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6 col-12">
+				<div class="col-md-4 col-sm-6 col-12">
 					<h3>Quick Links</h3> 
 					<ul class="footer-list">
 						<li><a href="#">Strategic Consulting</a>
@@ -40,7 +40,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-md-3 col-sm-6 col-12">
+				<div class="col-md-4 col-sm-6 col-12">
 					<h3>Recent Posts</h3> 
 					<div class="mt-25">
 						<div class="footer-recent-post clearfix">
@@ -66,11 +66,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-2 col-sm-6 col-12">
-					<h3>Tags</h3> 
-					<div class="footer-tags mt-25"> <a href="#">Business</a>  <a href="#">Conusltant</a>  <a href="#">Coach</a>  <a href="#">UX</a>  <a href="#">API</a>  <a href="#">Reputation</a>  <a href="#">Research</a>  <a href="#">Sale</a>  <a href="#">Service</a>  <a href="#">UI</a>  <a href="#">Web</a>  <a href="#">WebDesign</a> 
-					</div>
-				</div>
+				
 			</div>
 			<div class="footer-bar">
 				<p><span class="primary-color">Amazing Soft</span> © 2019. All Rights Reserved.</p>
