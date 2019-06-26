@@ -70,7 +70,7 @@
 				<div class="team-box-3">
 						<div class="team-box-3-image">
 							<div class="wow bounceInLeft" data-wow-duration="3s">
-							<img src="@if(!$publishedCeo==null){{(asset('Image/CEOImage/'.$publishedCeo->ceoImage))}}@endif" alt="member" height="400px" width="400px">
+							<img src="@if(!$publishedCeo==null){{(asset('Image/CEOImage/'.$publishedCeo->ceoImage))}}@endif" alt="member" height="400px" width="400px" class="img-thumbnail">
 							</div>
 							<div class="team-box-3-overlay">
 								<div class="team-box-3-name">
