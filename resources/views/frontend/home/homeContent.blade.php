@@ -102,7 +102,7 @@
 <div class="row">
 <div class="col-md-12">
 <div class="box-search">
-<h2 style="font-size:45px;text-align:center;">Search Your <span style="color:#0C51A0;">Domain</span> Name</h2>
+<h2 style="font-size:38px;text-align:center;">Search Your <span style="color:#0C51A0;">Domain</span> Name</h2>
 <form class="example wow fadeInLeft" data-wow-duration="2s" action="/action_page.php">
   <input type="text" placeholder="Search.." name="search">
   <button type="submit"><i class="fa fa-search"></i></button>

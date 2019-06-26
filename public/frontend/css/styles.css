@@ -9,7 +9,8 @@
 /*-----------------------------------------1. Sections-------------------------------------------*/
 
 .section-block {
-	padding: 15px 0px 25px 0px;
+
+	padding: 33px 0px 33px 0px;
 	background-color: #fff;
 }
 .section-block-product {
@@ -17,7 +18,7 @@
 	background-color: #fff;
 }
 .section-block-search {
-	padding: 45px 0px 5px 0px;
+	padding: 33px 0px 5px 0px;
 	background-color: #fff;
 }
 .section-block-ceo {
@@ -43,7 +44,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	padding: 45px 0px 50px 0px;
+	padding: 33px 0px 33px 0px;
 }
 .section-block-transparent {
 	padding: 90px 0px 90px 0px;
